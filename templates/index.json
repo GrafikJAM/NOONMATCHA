@@ -51,7 +51,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "",
+        "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
@@ -176,15 +176,15 @@
       "blocks": {
         "collection-1": {
           "type": "featured_collection",
-          "settings": { "collection": "" }
+          "settings": {}
         },
         "collection-2": {
           "type": "featured_collection",
-          "settings": { "collection": "" }
+          "settings": {}
         },
         "collection-3": {
           "type": "featured_collection",
-          "settings": { "collection": "" }
+          "settings": {}
         }
       },
       "block_order": ["collection-1", "collection-2", "collection-3"],
