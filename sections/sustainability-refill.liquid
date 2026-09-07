@@ -1,0 +1,269 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-refill {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-refill {
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+    .noon-refill--image-right .noon-refill__media { order: 2; }
+  }
+
+  .noon-refill__media img,
+  .noon-refill__media svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .noon-refill__media--placeholder {
+    aspect-ratio: 4 / 5;
+    background: rgba(var(--color-foreground), 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(var(--color-foreground), 0.4);
+    font-family: var(--font-body-family);
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .noon-refill__steps {
+    list-style: none;
+    margin: 3rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .noon-refill__step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .noon-refill__step-number {
+    font-family: var(--font-heading-family);
+    font-size: 2.4rem;
+    line-height: 1;
+    color: rgb(var(--color-noon-green, 125, 222, 18));
+  }
+
+  .noon-refill__step-title {
+    margin: 0 0 0.4rem;
+  }
+
+  .noon-refill__step-text {
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+{%- endstyle -%}
+
+<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="noon-refill{% if section.settings.image_position == 'right' %} noon-refill--image-right{% endif %}">
+    <div class="noon-refill__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1200
+          | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw', widths: '400,600,800,1000,1200'
+        }}
+      {%- else -%}
+        <div class="noon-refill__media--placeholder">Pievieno bundžiņas / uzpildes fotoattēlu</div>
+      {%- endif -%}
+    </div>
+
+    <div class="noon-refill__content">
+      {%- if section.settings.caption != blank -%}
+        <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ol class="noon-refill__steps">
+          {%- for block in section.blocks -%}
+            <li class="noon-refill__step" {{ block.shopify_attributes }}>
+              <span class="noon-refill__step-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <span>
+                {%- if block.settings.title != blank -%}
+                  <p class="h5 noon-refill__step-title">{{ block.settings.title | escape }}</p>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="noon-refill__step-text">{{ block.settings.text | escape }}</p>
+                {%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div style="margin-top: 3rem;">
+          <a
+            href="{{ section.settings.button_link | default: '#' }}"
+            class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+          >
+            {{- section.settings.button_label | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Refill system",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left",
+      "label": "Image position (desktop)"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "Ilgtspēja",
+      "label": "Caption"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Vairāk matcha, mazāk atkritumu",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Katra NOON bundžiņa ir veidota, lai to uzpildītu, nevis nomainītu. Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Iepirkties",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "Use secondary button style"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Pasūti savu ceremoniālo matcha",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Refill system",
+      "blocks": [
+        { "type": "step" },
+        { "type": "step" },
+        { "type": "step" }
+      ]
+    }
+  ]
+}
+{% endschema %}

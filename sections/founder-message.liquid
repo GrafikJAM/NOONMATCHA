@@ -1,0 +1,153 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-founder {
+    max-width: 76rem;
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    gap: 2.4rem;
+  }
+
+  .noon-founder__portrait {
+    width: 9.6rem;
+    height: 9.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(var(--color-foreground), 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: rgba(var(--color-foreground), 0.4);
+  }
+
+  .noon-founder__portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .noon-founder__quote {
+    font-family: var(--font-heading-family);
+    font-size: 2.6rem;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 990px) {
+    .noon-founder__quote {
+      font-size: 3.4rem;
+    }
+  }
+
+  .noon-founder__attribution {
+    font-family: var(--font-body-family);
+    font-size: 1.4rem;
+    color: rgba(var(--color-foreground), 0.65);
+  }
+
+  .noon-founder__attribution strong {
+    color: rgb(var(--color-foreground));
+  }
+{%- endstyle -%}
+
+<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="noon-founder">
+    <div class="noon-founder__portrait">
+      {%- if section.settings.portrait != blank -%}
+        {{ section.settings.portrait | image_url: width: 200 | image_tag: loading: 'lazy', width: 200, height: 200 }}
+      {%- else -%}
+        Foto
+      {%- endif -%}
+    </div>
+
+    <blockquote class="noon-founder__quote">
+      {{ section.settings.quote }}
+    </blockquote>
+
+    <p class="noon-founder__attribution">
+      <strong>{{ section.settings.name | escape }}</strong>{% if section.settings.role != blank %}, {{ section.settings.role | escape }}{% endif %}
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Founder message",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "portrait",
+      "label": "Portrait photo"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "quote",
+      "default": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+      "label": "Quote"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "default": "Dibinātāja vārds",
+      "label": "Name"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "default": "NOON MATCHA dibinātājs/-a",
+      "label": "Role"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder message"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,187 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-testimonials__header {
+    max-width: 56rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .noon-testimonials__grid {
+    display: grid;
+    gap: 2.4rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-testimonials__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .noon-testimonial {
+    background: rgb(var(--color-background));
+    border: 1px solid rgba(var(--color-foreground), 0.12);
+    padding: 2.8rem;
+    display: grid;
+    gap: 1.6rem;
+    align-content: start;
+  }
+
+  .noon-testimonial__rating {
+    color: rgb(var(--color-noon-green, 125, 222, 18));
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+  }
+
+  .noon-testimonial__quote {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .noon-testimonial__author {
+    margin: 0;
+    font-size: 1.3rem;
+    color: rgba(var(--color-foreground), 0.6);
+  }
+{%- endstyle -%}
+
+<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="noon-testimonials__header">
+    {%- if section.settings.caption != blank -%}
+      <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="noon-testimonials__grid">
+      {%- for block in section.blocks -%}
+        <div class="noon-testimonial" {{ block.shopify_attributes }}>
+          {%- if block.settings.rating > 0 -%}
+            <span class="noon-testimonial__rating" aria-hidden="true">
+              {%- for i in (1..5) -%}{% if i <= block.settings.rating %}★{% else %}☆{% endif %}{%- endfor -%}
+            </span>
+          {%- endif -%}
+          {%- if block.settings.quote != blank -%}
+            <p class="noon-testimonial__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+          {%- endif -%}
+          {%- if block.settings.author != blank -%}
+            <p class="noon-testimonial__author">
+              {{ block.settings.author | escape }}{% if block.settings.location != blank %}, {{ block.settings.location | escape }}{% endif %}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "4.9/5 vidējais vērtējums",
+      "label": "Caption"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Ko saka mūsu klienti",
+      "label": "Heading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Rating (0 = hide)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "default": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "default": "Klienta vārds",
+          "label": "Author name"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "default": "Rīga",
+          "label": "Author location"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

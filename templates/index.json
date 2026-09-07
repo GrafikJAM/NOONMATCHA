@@ -1,0 +1,356 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Atklāj brīdi sev ar NOON",
+            "heading_size": "hxl"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ceremoniālas kvalitātes matcha tēja no Japānas — mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Iepirkties tagad",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "buttons"],
+      "settings": {
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Populārākie produkti",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "refill": {
+      "type": "sustainability-refill",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Pasūti savu ceremoniālo matcha",
+            "text": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Atgriezies, uzpildi, atkārto",
+            "text": "Pasūti tikai matcha — tā pati bundžiņa, mazāk iepakojuma, labāka cena."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Vairāk matcha, mazāk atkritumu",
+            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst maigāks pret planētu."
+          }
+        }
+      },
+      "block_order": ["step-1", "step-2", "step-3"],
+      "settings": {
+        "image_position": "left",
+        "caption": "Ilgtspēja",
+        "heading": "Vairāk matcha, mazāk atkritumu",
+        "heading_size": "h1",
+        "text": "<p>Katra NOON bundžiņa ir veidota, lai to uzpildītu, nevis nomainītu. Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "button_label": "Iepirkties",
+        "button_link": "shopify://collections/all",
+        "button_style_secondary": false,
+        "color_scheme": "scheme-5",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "founder": {
+      "type": "founder-message",
+      "settings": {
+        "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+        "name": "Dibinātāja vārds",
+        "role": "NOON MATCHA dibinātājs/-a",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "commitment": {
+      "type": "multicolumn",
+      "blocks": {
+        "column-1": {
+          "type": "column",
+          "settings": {
+            "title": "Tīrība un kvalitāte",
+            "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas — svaiga, tīra un pilnībā izsekojama tās izcelsmē.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-2": {
+          "type": "column",
+          "settings": {
+            "title": "Estētika kā pieredze",
+            "text": "<p>Katra detaļa — no tējas līdz bundžiņai — veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column-3": {
+          "type": "column",
+          "settings": {
+            "title": "Cieņa pret izcelsmi",
+            "text": "<p>Mēs cienām Japānas tējas kultūru un tradīcijas. Tas, ko radām, tiek darīts ar cieņu, nevis atdarinājumu.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["column-1", "column-2", "column-3"],
+      "settings": {
+        "title": "Mūsu apņemšanās",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 72,
+        "padding_bottom": 56
+      }
+    },
+    "collections": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-1": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "collection-2": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        },
+        "collection-3": {
+          "type": "featured_collection",
+          "settings": { "collection": "" }
+        }
+      },
+      "block_order": ["collection-1", "collection-2", "collection-3"],
+      "settings": {
+        "title": "Iepirkties pēc kategorijas",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "wholesale": {
+      "type": "wholesale-partnership",
+      "blocks": {
+        "h1": { "type": "highlight", "settings": { "label": "Vairumtirdzniecības cenas" } },
+        "h2": { "type": "highlight", "settings": { "label": "Personāla apmācība" } },
+        "h3": { "type": "highlight", "settings": { "label": "Reklāmas materiāli" } }
+      },
+      "block_order": ["h1", "h2", "h3"],
+      "settings": {
+        "caption": "Kafejnīcām un studijām",
+        "heading": "Piedāvā NOON savā letē",
+        "heading_size": "h1",
+        "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
+        "button_label": "Pieteikties vairumtirdzniecībai",
+        "button_link": "",
+        "button_style_secondary": false,
+        "color_scheme": "scheme-4",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "reviews": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
+            "author": "Klienta vārds",
+            "location": "Rīga"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Miers un stabils fokuss bez kritiena. Manas pēcpusdienas tagad izskatās pavisam citādas.",
+            "author": "Klienta vārds",
+            "location": "Rīga"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Uzpildes bundžiņa ir tik maza lieta, kas maina tik daudz. Mīlu šo rituālu.",
+            "author": "Klienta vārds",
+            "location": "Jūrmala"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "caption": "Mūsu klientu iecienīts",
+        "heading": "Ko saka mūsu klienti",
+        "color_scheme": "scheme-2",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "locations": {
+      "type": "location-finder",
+      "blocks": {
+        "loc-1": {
+          "type": "location",
+          "settings": {
+            "tag": "Kafejnīca",
+            "name": "Pievieno partneru kafejnīcu",
+            "address": "Ielas adrese, Rīga",
+            "hours": "P.–Sv. 8:00–20:00",
+            "map_link": ""
+          }
+        },
+        "loc-2": {
+          "type": "location",
+          "settings": {
+            "tag": "Studija",
+            "name": "Pievieno partneru studiju",
+            "address": "Ielas adrese, Rīga",
+            "hours": "P.–Sv. 8:00–20:00",
+            "map_link": ""
+          }
+        },
+        "loc-3": {
+          "type": "location",
+          "settings": {
+            "tag": "Veikals",
+            "name": "Pievieno tirdzniecības vietu",
+            "address": "Ielas adrese, Rīga",
+            "hours": "P.–Sv. 8:00–20:00",
+            "map_link": ""
+          }
+        }
+      },
+      "block_order": ["loc-1", "loc-2", "loc-3"],
+      "settings": {
+        "caption": "Rīga, Latvija",
+        "heading": "Atrodi NOON sev tuvāk",
+        "text": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "newsletter": {
+      "type": "email-signup-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Paliec rituālā",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Reizēm — ziņas par jaunumiem, uzpildēm un iemeslu apstāties plkst. 12.</p>",
+            "text_style": "body"
+          }
+        },
+        "form": {
+          "type": "email_form"
+        }
+      },
+      "block_order": ["heading", "paragraph", "form"],
+      "settings": {
+        "show_background_image": false,
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-4",
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "bestsellers",
+    "refill",
+    "founder",
+    "commitment",
+    "collections",
+    "wholesale",
+    "reviews",
+    "locations",
+    "newsletter"
+  ]
+}

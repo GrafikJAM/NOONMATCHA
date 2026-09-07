@@ -1,0 +1,20 @@
+{%- comment -%}
+  Renders the bundled NOON MATCHA wordmark SVG whenever no logo has been
+  uploaded yet via Theme settings > Logo. Once the client uploads their own
+  file there, settings.logo takes over automatically everywhere this is used.
+  Accepts: class (string, optional), height (number, px, optional)
+{%- endcomment -%}
+{%- liquid
+  assign fallback_height = height | default: 28
+  assign fallback_ratio = 345.6 | divided_by: 148.61
+  assign fallback_width = fallback_height | times: fallback_ratio | round
+-%}
+<img
+  src="{{ 'logo-noonmatcha-green.svg' | asset_url }}"
+  alt="{{ shop.name }}"
+  class="{{ class }}"
+  width="{{ fallback_width }}"
+  height="{{ fallback_height }}"
+  style="height: {{ fallback_height }}px; width: auto; display: block;"
+  loading="lazy"
+>

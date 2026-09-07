@@ -1,0 +1,210 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-locations__header {
+    max-width: 56rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .noon-locations__grid {
+    display: grid;
+    gap: 1px;
+    background: rgba(var(--color-foreground), 0.12);
+    border: 1px solid rgba(var(--color-foreground), 0.12);
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-locations__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .noon-location {
+    background: rgb(var(--color-background));
+    padding: 3.2rem 2.8rem;
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .noon-location__tag {
+    font-family: var(--font-body-family);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(var(--color-noon-green, 125, 222, 18));
+  }
+
+  .noon-location__name {
+    margin: 0;
+  }
+
+  .noon-location__address,
+  .noon-location__hours {
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.7);
+    font-size: 1.4rem;
+  }
+
+  .noon-location__link {
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+  }
+{%- endstyle -%}
+
+<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="noon-locations__header">
+    {%- if section.settings.caption != blank -%}
+      <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="noon-locations__grid">
+      {%- for block in section.blocks -%}
+        <div class="noon-location" {{ block.shopify_attributes }}>
+          {%- if block.settings.tag != blank -%}
+            <span class="noon-location__tag">{{ block.settings.tag | escape }}</span>
+          {%- endif -%}
+          {%- if block.settings.name != blank -%}
+            <p class="h4 noon-location__name">{{ block.settings.name | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.address != blank -%}
+            <p class="noon-location__address">{{ block.settings.address | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.hours != blank -%}
+            <p class="noon-location__hours">{{ block.settings.hours | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.map_link != blank -%}
+            <a class="link noon-location__link" href="{{ block.settings.map_link }}" target="_blank" rel="noopener">
+              Skatīt maršrutu
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Location finder",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "default": "Rīga, Latvija",
+      "label": "Caption"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Atrodi NOON sev tuvāk",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
+      "label": "Text"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tag",
+          "default": "Kafejnīca",
+          "label": "Tag",
+          "info": "e.g. Kafejnīca, Studija, Veikals"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Vietas nosaukums",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "default": "Ielas adrese, Rīga",
+          "label": "Address"
+        },
+        {
+          "type": "text",
+          "id": "hours",
+          "default": "P.–Sv. 8:00–20:00",
+          "label": "Hours"
+        },
+        {
+          "type": "url",
+          "id": "map_link",
+          "label": "Map link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location finder",
+      "blocks": [
+        { "type": "location" },
+        { "type": "location" },
+        { "type": "location" }
+      ]
+    }
+  ]
+}
+{% endschema %}

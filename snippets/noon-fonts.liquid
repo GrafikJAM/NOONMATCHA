@@ -1,0 +1,37 @@
+{%- comment -%}
+  NOON MATCHA brand typography.
+  Bootzy TM = display/heading typeface. Roboto Mono = body typeface.
+  These are licensed font files shipped in /assets, not Shopify's font
+  library, so this snippet replaces Dawn's font_picker-driven CSS variables
+  outright. Render this inside a {% style %} block, before any other
+  code sets --font-body-family / --font-heading-family, so nothing
+  overwrites it afterward.
+{%- endcomment -%}
+@font-face {
+  font-family: 'Bootzy TM';
+  src:
+    url('{{ 'BootzyTM.woff2' | asset_url }}') format('woff2'),
+    url('{{ 'BootzyTM.woff' | asset_url }}') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('{{ 'RobotoMono-Variable.ttf' | asset_url }}') format('truetype-variations');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-body-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body-style: normal;
+  --font-body-weight: 400;
+  --font-body-weight-bold: 700;
+
+  --font-heading-family: 'Bootzy TM', 'Arial Black', Helvetica, sans-serif;
+  --font-heading-style: normal;
+  --font-heading-weight: 400;
+}
