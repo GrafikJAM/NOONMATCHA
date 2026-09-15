@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -7,14 +16,14 @@
           "type": "heading",
           "settings": {
             "heading": "Atklāj brīdi sev ar NOON",
-            "heading_size": "hxl"
+            "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas — mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
-            "text_style": "subtitle"
+            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "buttons": {
@@ -36,10 +45,10 @@
       ],
       "settings": {
         "overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "medium",
         "desktop_content_position": "middle-center",
-        "show_text_box": false,
         "desktop_content_alignment": "center",
+        "show_text_box": false,
         "color_scheme": "scheme-4",
         "mobile_content_alignment": "center",
         "show_text_below": false
@@ -48,20 +57,20 @@
     "bestsellers": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Populārākie produkti",
-        "heading_size": "h1",
+        "heading_size": "h2",
+        "heading_alignment": "center",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -69,6 +78,7 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 56,
         "padding_bottom": 56
       }
@@ -104,18 +114,21 @@
         "step-3"
       ],
       "settings": {
+        "image": "shopify://shop_images/noon-29.jpg",
+        "image_ratio": "square",
         "image_position": "left",
         "caption": "Ilgtspēja",
         "heading": "Vairāk matcha, mazāk atkritumu",
         "heading_size": "h1",
-        "text": "<p>Katra NOON bundžiņa ir veidota, lai to uzpildītu, nevis nomainītu. Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "text": "<p>Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
         "button_label": "Iepirkties",
         "button_link": "shopify://collections/all",
         "button_style_secondary": false,
         "color_scheme": "scheme-5",
+        "full_width": false,
+        "background_overlay_opacity": 0,
         "padding_top": 72,
-        "padding_bottom": 72,
-        "image_ratio": "portrait"
+        "padding_bottom": 72
       }
     },
     "founder": {
@@ -124,15 +137,15 @@
         "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
         "name": "Viktorija Miķelsone",
         "role": "NOON MATCHA dibinātājs/-a",
-        "color_scheme": "scheme-1",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "use_default_background": true,
-        "full_width": true,
-        "background_overlay_opacity": 45,
         "button_label": "PAR MUMS",
         "button_link": "",
-        "button_style_secondary": false
+        "button_style_secondary": false,
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "use_default_background": true,
+        "background_overlay_opacity": 45,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "commitment": {
@@ -141,31 +154,31 @@
         "column-1": {
           "type": "column",
           "settings": {
+            "icon": "checkmark",
             "title": "Tīrība un kvalitāte",
             "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas — svaiga, tīra un pilnībā izsekojama tās izcelsmē.</p>",
             "link_label": "",
-            "link": "",
-            "icon": "checkmark"
+            "link": ""
           }
         },
         "column-2": {
           "type": "column",
           "settings": {
+            "icon": "square",
             "title": "Estētika kā pieredze",
             "text": "<p>Katra detaļa — no tējas līdz bundžiņai — veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
             "link_label": "",
-            "link": "",
-            "icon": "square"
+            "link": ""
           }
         },
         "column-3": {
           "type": "column",
           "settings": {
+            "icon": "circle",
             "title": "Cieņa pret izcelsmi",
             "text": "<p>Mēs cienām Japānas tējas kultūru un tradīcijas. Tas, ko radām, tiek darīts ar cieņu, nevis atdarinājumu.</p>",
             "link_label": "",
-            "link": "",
-            "icon": "circle"
+            "link": ""
           }
         }
       },
@@ -175,14 +188,15 @@
         "column-3"
       ],
       "settings": {
-        "title": "Mūsu apņemšanās",
-        "heading_size": "h1",
+        "title": "",
+        "heading_size": "h2",
+        "heading_alignment": "center",
         "image_width": "third",
         "image_ratio": "square",
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
@@ -196,15 +210,21 @@
       "blocks": {
         "collection-1": {
           "type": "featured_collection",
-          "settings": {}
+          "settings": {
+            "collection": ""
+          }
         },
         "collection-2": {
           "type": "featured_collection",
-          "settings": {}
+          "settings": {
+            "collection": ""
+          }
         },
         "collection-3": {
           "type": "featured_collection",
-          "settings": {}
+          "settings": {
+            "collection": ""
+          }
         }
       },
       "block_order": [
@@ -212,6 +232,7 @@
         "collection-2",
         "collection-3"
       ],
+      "disabled": true,
       "settings": {
         "title": "Iepirkties pēc kategorijas",
         "heading_size": "h1",
@@ -261,6 +282,8 @@
         "button_link": "",
         "button_style_secondary": false,
         "color_scheme": "scheme-4",
+        "full_width": false,
+        "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -305,6 +328,8 @@
         "caption": "Mūsu klientu iecienīts",
         "heading": "Ko saka mūsu klienti",
         "color_scheme": "scheme-2",
+        "full_width": false,
+        "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
       }
@@ -353,44 +378,42 @@
         "heading": "Atrodi NOON sev tuvāk",
         "text": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
         "color_scheme": "scheme-1",
+        "full_width": false,
+        "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
       }
     },
     "instagram": {
       "type": "instagram-feed",
-      "settings": {
-        "caption": "Sekojiet līdzi",
-        "heading": "Follow Us",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "instagram_url": "https://instagram.com/noonmatcha",
-        "instagram_handle": "@noonmatcha",
-        "image_ratio": "portrait",
-        "columns_desktop": "4",
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "background_overlay_opacity": 0,
-        "padding_top": 52,
-        "padding_bottom": 52
-      },
       "blocks": {
         "ig1": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": "",
+            "alt_text": ""
+          }
         },
         "ig2": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": "",
+            "alt_text": ""
+          }
         },
         "ig3": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": "",
+            "alt_text": ""
+          }
         },
         "ig4": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "link": "",
+            "alt_text": ""
+          }
         }
       },
       "block_order": [
@@ -398,7 +421,24 @@
         "ig2",
         "ig3",
         "ig4"
-      ]
+      ],
+      "settings": {
+        "caption": "Sekojiet līdzi",
+        "heading": "@noonmatcha",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "instagram_url": "https://instagram.com/noonmatcha",
+        "instagram_handle": "@noonmatcha",
+        "embed_code": "",
+        "image_ratio": "portrait",
+        "columns_desktop": "4",
+        "columns_mobile": "2",
+        "color_scheme": "scheme-3",
+        "full_width": false,
+        "background_overlay_opacity": 0,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
