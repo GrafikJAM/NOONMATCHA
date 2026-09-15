@@ -60,8 +60,8 @@
         "collection": "all",
         "products_to_show": 8,
         "title": "Populārākie produkti",
-        "heading_size": "h1",
-        "heading_alignment": "left",
+        "heading_size": "h2",
+        "heading_alignment": "center",
         "description": "",
         "show_description": false,
         "description_style": "body",
@@ -188,8 +188,8 @@
         "column-3"
       ],
       "settings": {
-        "title": "Mūsu apņemšanās",
-        "heading_size": "h1",
+        "title": "",
+        "heading_size": "h2",
         "heading_alignment": "center",
         "image_width": "third",
         "image_ratio": "square",
