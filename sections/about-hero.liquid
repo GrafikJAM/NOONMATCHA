@@ -29,6 +29,22 @@
     }
   }
 
+  .noon-about-hero--centered .noon-about-hero__title {
+    text-align: center;
+  }
+
+  .noon-about-hero__grid--centered {
+    max-width: 62rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-about-hero__grid--centered {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .noon-about-hero__heading {
     margin: 0;
   }
@@ -51,18 +67,25 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+{%- assign noon_hero_centered = false -%}
+{%- if section.settings.heading == blank -%}
+  {%- assign noon_hero_centered = true -%}
+{%- endif -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient{% if noon_hero_centered %} noon-about-hero--centered{% endif %}">
   <div class="page-width section-{{ section.id }}-padding">
     <h1 class="noon-about-hero__title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
       {{ page.title | escape }}
     </h1>
 
-    <div class="noon-about-hero__grid">
-      <div>
-        {%- if section.settings.heading != blank -%}
-          <h2 class="noon-about-hero__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-        {%- endif -%}
-      </div>
+    <div class="noon-about-hero__grid{% if noon_hero_centered %} noon-about-hero__grid--centered{% endif %}">
+      {%- unless noon_hero_centered -%}
+        <div>
+          {%- if section.settings.heading != blank -%}
+            <h2 class="noon-about-hero__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+        </div>
+      {%- endunless -%}
       <div>
         {%- if section.settings.intro_text != blank -%}
           <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
