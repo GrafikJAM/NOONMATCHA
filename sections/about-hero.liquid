@@ -49,6 +49,10 @@
     margin: 0;
   }
 
+  .noon-about-hero__grid--centered .noon-about-hero__heading {
+    margin-bottom: 1.6rem;
+  }
+
   .noon-about-hero__lead {
     margin: 0;
     font-size: 1.9rem;
@@ -67,34 +71,45 @@
   }
 {%- endstyle -%}
 
-{%- assign noon_hero_centered = false -%}
-{%- if section.settings.heading == blank -%}
-  {%- assign noon_hero_centered = true -%}
-{%- endif -%}
+{%- assign noon_hero_centered = section.settings.centered_layout -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient{% if noon_hero_centered %} noon-about-hero--centered{% endif %}">
   <div class="page-width section-{{ section.id }}-padding">
-    <h1 class="noon-about-hero__title page-title h0{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <h1 class="noon-about-hero__title page-title h0 visually-hidden">
       {{ page.title | escape }}
     </h1>
 
-    <div class="noon-about-hero__grid{% if noon_hero_centered %} noon-about-hero__grid--centered{% endif %}">
-      {%- unless noon_hero_centered -%}
+    {%- if noon_hero_centered -%}
+      <div class="noon-about-hero__grid noon-about-hero__grid--centered">
+        <div>
+          {%- if section.settings.heading != blank -%}
+            <h2 class="noon-about-hero__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.intro_text != blank -%}
+            <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
+          {%- endif -%}
+          {%- if section.settings.body_text != blank -%}
+            <div class="noon-about-hero__body">{{ section.settings.body_text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="noon-about-hero__grid">
         <div>
           {%- if section.settings.heading != blank -%}
             <h2 class="noon-about-hero__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
           {%- endif -%}
         </div>
-      {%- endunless -%}
-      <div>
-        {%- if section.settings.intro_text != blank -%}
-          <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
-        {%- endif -%}
-        {%- if section.settings.body_text != blank -%}
-          <div class="noon-about-hero__body">{{ section.settings.body_text }}</div>
-        {%- endif -%}
+        <div>
+          {%- if section.settings.intro_text != blank -%}
+            <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
+          {%- endif -%}
+          {%- if section.settings.body_text != blank -%}
+            <div class="noon-about-hero__body">{{ section.settings.body_text }}</div>
+          {%- endif -%}
+        </div>
       </div>
-    </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -133,6 +148,12 @@
       "id": "body_text",
       "label": "Supporting text",
       "default": "<p>Mēs atradām atbildi Japānas senajā matcha rituālā — tajā brīdī, kad tēja nav tikai dzēriens, bet apzināts mirklis sev. NOON MATCHA radās, lai piedāvātu augstvērtīgu ceremoniālo matcha, kas sniedz ilgstošu, mierpilnu enerģiju un skaidrību, ko nevar salīdzinq ar mākslīgiem stimulatoriem.</p><p>Mēs ticam, ka enerģija un estētika var būt apvienoti. Tāpēc rūpīgi izvēlamies tikai augstākās kvalitātes matcha no Japānas, un piedāvājam arī izsmalcinātus piederumus, kas padara pagatavošanas rituālu vienkāršu, skaistu un personīgu.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "centered_layout",
+      "label": "Center content (single column)",
+      "default": false
     },
     {
       "type": "color_scheme",

@@ -3,13 +3,14 @@
     "contact-hero": {
       "type": "about-hero",
       "settings": {
-        "heading": "",
+        "heading": "Sazinies ar mums",
         "heading_size": "h1",
         "intro_text": "<p>Jautājumi par pasūtījumu, sadarbību vai vienkārši gribi pasveicināt? Raksti mums zemāk redzamajā formā — atbildēsim, tiklīdz varēsim.</p>",
         "body_text": "",
         "color_scheme": "scheme-1",
         "padding_top": 72,
-        "padding_bottom": 24
+        "padding_bottom": 24,
+        "centered_layout": true
       }
     },
     "form": {
