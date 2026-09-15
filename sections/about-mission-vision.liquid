@@ -1,0 +1,171 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-about-mv__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-about-mv__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .noon-about-mv__col {
+      padding: 0 5rem;
+    }
+
+    .noon-about-mv__col--first {
+      padding-left: 0;
+      border-right: 1px solid rgba(var(--color-foreground), 0.14);
+    }
+
+    .noon-about-mv__col--last {
+      padding-right: 0;
+    }
+  }
+
+  .noon-about-mv__caption {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .noon-about-mv__heading {
+    margin: 0 0 1.6rem;
+  }
+
+  .noon-about-mv__text {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.65;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="noon-about-mv__grid">
+      <div class="noon-about-mv__col noon-about-mv__col--first">
+        <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.mission_caption | escape }}</span>
+        {%- if section.settings.mission_heading != blank -%}
+          <h2 class="noon-about-mv__heading h1">{{ section.settings.mission_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.mission_text != blank -%}
+          <div class="noon-about-mv__text">{{ section.settings.mission_text }}</div>
+        {%- endif -%}
+      </div>
+      <div class="noon-about-mv__col noon-about-mv__col--last">
+        <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.vision_caption | escape }}</span>
+        {%- if section.settings.vision_heading != blank -%}
+          <h2 class="noon-about-mv__heading h1">{{ section.settings.vision_heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.vision_text != blank -%}
+          <div class="noon-about-mv__text">{{ section.settings.vision_text }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mission & vision",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Mission"
+    },
+    {
+      "type": "text",
+      "id": "mission_caption",
+      "label": "Caption",
+      "default": "01"
+    },
+    {
+      "type": "text",
+      "id": "mission_heading",
+      "label": "Heading",
+      "default": "Misija"
+    },
+    {
+      "type": "richtext",
+      "id": "mission_text",
+      "label": "Text",
+      "default": "<p>Radīt mierpilnu brīdi dienas virsotnē — rituālu ar matcha, kas savieno estētiku, fokusu un dabiski atjaunotu enerģiju.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Vision"
+    },
+    {
+      "type": "text",
+      "id": "vision_caption",
+      "label": "Caption",
+      "default": "02"
+    },
+    {
+      "type": "text",
+      "id": "vision_heading",
+      "label": "Heading",
+      "default": "Vīzija"
+    },
+    {
+      "type": "richtext",
+      "id": "vision_text",
+      "label": "Text",
+      "default": "<p>Veidot jaunu kultūru, kur dienas vidus kļūst par brīdi sev — apzinātam mirklim, mieram un patiesai enerģijai ar matcha kā rituāla centru.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 64
+    }
+  ],
+  "presets": [
+    { "name": "Mission & vision" }
+  ]
+}
+{% endschema %}

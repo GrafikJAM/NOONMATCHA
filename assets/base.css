@@ -278,18 +278,18 @@ h5,
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
   color: rgb(var(--color-foreground));
-  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  line-height: 0.95;
   word-break: break-word;
 }
 
 .hxxl {
   font-size: clamp(calc(var(--font-heading-scale) * 5.6rem), 14vw, calc(var(--font-heading-scale) * 7.2rem));
-  line-height: 1.1;
+  line-height: 0.95;
 }
 
 .hxl {
-  font-size: calc(var(--font-heading-scale) * 5rem);
-  line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  font-size: calc(var(--font-heading-scale) * 3rem);
+  line-height: 0.95;
 }
 
 @media only screen and (min-width: 750px) {
@@ -874,10 +874,16 @@ summary::-webkit-details-marker {
 }
 
 .subtitle {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   letter-spacing: 0.06rem;
   color: rgba(var(--color-foreground), 0.7);
+}
+
+@media only screen and (min-width: 750px) {
+  .subtitle {
+    font-size: 1.8rem;
+  }
 }
 
 .subtitle--small {
@@ -2975,6 +2981,15 @@ details-disclosure > details {
   background: rgb(var(--color-background));
   background: var(--gradient-background);
   background-attachment: fixed;
+}
+
+/* NOON: reusable "centered heading" option for sections that offer it */
+.noon-title-wrapper--center {
+  text-align: center;
+}
+
+.title-wrapper-with-link.noon-title-wrapper--center {
+  justify-content: center;
 }
 
 @media screen and (forced-colors: active) {

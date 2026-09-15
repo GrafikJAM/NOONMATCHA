@@ -20,6 +20,15 @@
     gap: 2.4rem;
   }
 
+  .noon-founder > blockquote,
+  .noon-founder > p {
+    margin: 0;
+  }
+
+  .noon-founder__button {
+    margin-top: 0.8rem;
+  }
+
   .noon-founder__portrait {
     width: 9.6rem;
     height: 9.6rem;
@@ -45,6 +54,9 @@
     font-size: 2.6rem;
     line-height: 1.25;
     margin: 0;
+    font-style: normal;
+    border-left: none;
+    padding-left: 0;
   }
 
   @media screen and (min-width: 990px) {
@@ -62,17 +74,62 @@
   .noon-founder__attribution strong {
     color: rgb(var(--color-foreground));
   }
+
+  .noon-section {
+    position: relative;
+  }
+
+  .noon-section--bg-image {
+    background-image: var(--noon-bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .noon-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .noon-section__overlay {
+    opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};
+  }
+
+  .noon-section__inner {
+    position: relative;
+    z-index: 1;
+  }
 {%- endstyle -%}
 
-<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+{%- liquid
+  assign noon_has_bg_image = false
+  assign noon_bg_image_url = ''
+  if section.settings.background_image != blank
+    assign noon_has_bg_image = true
+    assign noon_bg_image_url = section.settings.background_image | image_url: width: 3840
+  elsif section.settings.use_default_background
+    assign noon_has_bg_image = true
+    assign noon_bg_image_url = 'founder-bg.jpg' | asset_url
+  endif
+  assign noon_full_width = section.settings.full_width
+-%}
+<div
+  class="noon-section{% unless noon_full_width %} page-width{% endunless %} color-{{ section.settings.color_scheme }} gradient{% if noon_has_bg_image %} noon-section--bg-image{% endif %}"
+  {%- if noon_has_bg_image %}
+    style="--noon-bg-image: url('{{ noon_bg_image_url }}');"
+  {%- endif %}
+>
+  {%- if noon_has_bg_image and section.settings.background_overlay_opacity > 0 -%}
+    <div class="noon-section__overlay"></div>
+  {%- endif -%}
+  <div class="{% if noon_full_width %}page-width {% endif %}isolate section-{{ section.id }}-padding noon-section__inner">
   <div class="noon-founder">
-    <div class="noon-founder__portrait">
-      {%- if section.settings.portrait != blank -%}
+    {%- if section.settings.portrait != blank -%}
+      <div class="noon-founder__portrait">
         {{ section.settings.portrait | image_url: width: 200 | image_tag: loading: 'lazy', width: 200, height: 200 }}
-      {%- else -%}
-        Foto
-      {%- endif -%}
-    </div>
+      </div>
+    {%- endif -%}
 
     <blockquote class="noon-founder__quote">
       {{ section.settings.quote }}
@@ -81,8 +138,27 @@
     <p class="noon-founder__attribution">
       <strong>{{ section.settings.name | escape }}</strong>{% if section.settings.role != blank %}, {{ section.settings.role | escape }}{% endif %}
     </p>
+
+    {%- liquid
+      assign noon_founder_button_url = section.settings.button_link
+      if noon_founder_button_url == blank and pages['par-mums'] != blank
+        assign noon_founder_button_url = pages['par-mums'].url
+      endif
+    -%}
+    {%- if section.settings.button_label != blank -%}
+      <div class="noon-founder__button">
+        <a
+          href="{{ noon_founder_button_url | default: '#' }}"
+          class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+          {% if noon_founder_button_url == blank %}role="link" aria-disabled="true"{% endif %}
+        >
+          {{- section.settings.button_label | escape -}}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </div>
+  </div>
 
 {% schema %}
 {
@@ -114,10 +190,65 @@
       "label": "Role"
     },
     {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "info": "Leave blank to hide."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "label": "Use outline button style",
+      "default": false
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make background full width",
+      "info": "Background stretches edge to edge; content stays centered.",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image",
+      "info": "Optional. Overrides the color scheme background."
+    },
+    {
+      "type": "checkbox",
+      "id": "use_default_background",
+      "label": "Use brand default background photo",
+      "info": "Used only when no background image above is set.",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Background image overlay opacity",
+      "default": 0
     },
     {
       "type": "header",

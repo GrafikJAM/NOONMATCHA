@@ -17,6 +17,15 @@
     text-align: center;
   }
 
+  .noon-testimonials__header > p,
+  .noon-testimonials__header > h2 {
+    margin: 0;
+  }
+
+  .noon-testimonials__header > p + h2 {
+    margin-top: 0.8rem;
+  }
+
   .noon-testimonials__grid {
     display: grid;
     gap: 2.4rem;
@@ -54,9 +63,51 @@
     font-size: 1.3rem;
     color: rgba(var(--color-foreground), 0.6);
   }
+
+  .noon-section {
+    position: relative;
+  }
+
+  .noon-section--bg-image {
+    background-image: var(--noon-bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .noon-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .noon-section__overlay {
+    opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};
+  }
+
+  .noon-section__inner {
+    position: relative;
+    z-index: 1;
+  }
 {%- endstyle -%}
 
-<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+{%- liquid
+  assign noon_has_bg_image = false
+  if section.settings.background_image != blank
+    assign noon_has_bg_image = true
+  endif
+  assign noon_full_width = section.settings.full_width
+-%}
+<div
+  class="noon-section{% unless noon_full_width %} page-width{% endunless %} color-{{ section.settings.color_scheme }} gradient{% if noon_has_bg_image %} noon-section--bg-image{% endif %}"
+  {%- if noon_has_bg_image %}
+    style="--noon-bg-image: url('{{ section.settings.background_image | image_url: width: 3840 }}');"
+  {%- endif %}
+>
+  {%- if noon_has_bg_image and section.settings.background_overlay_opacity > 0 -%}
+    <div class="noon-section__overlay"></div>
+  {%- endif -%}
+  <div class="{% if noon_full_width %}page-width {% endif %}isolate section-{{ section.id }}-padding noon-section__inner">
   <div class="noon-testimonials__header">
     {%- if section.settings.caption != blank -%}
       <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
@@ -88,6 +139,7 @@
     </div>
   {%- endif -%}
 </div>
+  </div>
 
 {% schema %}
 {
@@ -112,6 +164,33 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make background full width",
+      "info": "Background stretches edge to edge; content stays centered.",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image",
+      "info": "Optional. Overrides the color scheme background."
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Background image overlay opacity",
+      "default": 0
     },
     {
       "type": "header",

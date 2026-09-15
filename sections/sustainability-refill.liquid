@@ -32,6 +32,26 @@
     height: auto;
   }
 
+  .noon-refill__media--square,
+  .noon-refill__media--portrait,
+  .noon-refill__media--landscape,
+  .noon-refill__media--wide {
+    overflow: hidden;
+  }
+
+  .noon-refill__media--square img,
+  .noon-refill__media--portrait img,
+  .noon-refill__media--landscape img,
+  .noon-refill__media--wide img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .noon-refill__media--square { aspect-ratio: 1 / 1; }
+  .noon-refill__media--portrait { aspect-ratio: 2 / 3; }
+  .noon-refill__media--landscape { aspect-ratio: 3 / 2; }
+  .noon-refill__media--wide { aspect-ratio: 16 / 9; }
+
   .noon-refill__media--placeholder {
     aspect-ratio: 4 / 5;
     background: rgba(var(--color-foreground), 0.06);
@@ -43,6 +63,21 @@
     font-size: 1.3rem;
     text-align: center;
     padding: 2rem;
+  }
+
+  .noon-refill__content > p,
+  .noon-refill__content > h2,
+  .noon-refill__content > .rte {
+    margin: 0;
+  }
+
+  .noon-refill__content > p + h2 {
+    margin-top: 0.8rem;
+  }
+
+  .noon-refill__content > h2 + .rte,
+  .noon-refill__content > p + .rte {
+    margin-top: 1.2rem;
   }
 
   .noon-refill__steps {
@@ -75,11 +110,53 @@
     margin: 0;
     color: rgba(var(--color-foreground), 0.75);
   }
+
+  .noon-section {
+    position: relative;
+  }
+
+  .noon-section--bg-image {
+    background-image: var(--noon-bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .noon-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .noon-section__overlay {
+    opacity: {{ section.settings.background_overlay_opacity | divided_by: 100.0 }};
+  }
+
+  .noon-section__inner {
+    position: relative;
+    z-index: 1;
+  }
 {%- endstyle -%}
 
-<div class="isolate page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+{%- liquid
+  assign noon_has_bg_image = false
+  if section.settings.background_image != blank
+    assign noon_has_bg_image = true
+  endif
+  assign noon_full_width = section.settings.full_width
+-%}
+<div
+  class="noon-section{% unless noon_full_width %} page-width{% endunless %} color-{{ section.settings.color_scheme }} gradient{% if noon_has_bg_image %} noon-section--bg-image{% endif %}"
+  {%- if noon_has_bg_image %}
+    style="--noon-bg-image: url('{{ section.settings.background_image | image_url: width: 3840 }}');"
+  {%- endif %}
+>
+  {%- if noon_has_bg_image and section.settings.background_overlay_opacity > 0 -%}
+    <div class="noon-section__overlay"></div>
+  {%- endif -%}
+  <div class="{% if noon_full_width %}page-width {% endif %}isolate section-{{ section.id }}-padding noon-section__inner">
   <div class="noon-refill{% if section.settings.image_position == 'right' %} noon-refill--image-right{% endif %}">
-    <div class="noon-refill__media">
+    <div class="noon-refill__media{% if section.settings.image_ratio != 'natural' %} noon-refill__media--{{ section.settings.image_ratio }}{% endif %}">
       {%- if section.settings.image != blank -%}
         {{
           section.settings.image
@@ -135,6 +212,7 @@
     </div>
   </div>
 </div>
+  </div>
 
 {% schema %}
 {
@@ -146,6 +224,19 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        { "value": "natural", "label": "Natural (original proportions)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (2:3)" },
+        { "value": "landscape", "label": "Landscape (3:2)" },
+        { "value": "wide", "label": "Wide (16:9)" }
+      ],
+      "default": "natural",
+      "label": "Image aspect ratio"
     },
     {
       "type": "select",
@@ -208,6 +299,33 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-5"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make background full width",
+      "info": "Background stretches edge to edge; content stays centered.",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image",
+      "info": "Optional. Overrides the color scheme background."
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Background image overlay opacity",
+      "default": 0
     },
     {
       "type": "header",

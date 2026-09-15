@@ -1,7 +1,7 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
+      "type": "video-banner",
       "blocks": {
         "heading": {
           "type": "heading",
@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Ceremoniālas kvalitātes matcha tēja no Japānas — mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.</p>",
+            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas — mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
             "text_style": "subtitle"
           }
         },
@@ -29,17 +29,19 @@
           }
         }
       },
-      "block_order": ["heading", "text", "buttons"],
+      "block_order": [
+        "heading",
+        "text",
+        "buttons"
+      ],
       "settings": {
-        "image_overlay_opacity": 0,
+        "overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
-        "image_behavior": "none",
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-4",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
         "show_text_below": false
       }
     },
@@ -96,7 +98,11 @@
           }
         }
       },
-      "block_order": ["step-1", "step-2", "step-3"],
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
       "settings": {
         "image_position": "left",
         "caption": "Ilgtspēja",
@@ -108,18 +114,25 @@
         "button_style_secondary": false,
         "color_scheme": "scheme-5",
         "padding_top": 72,
-        "padding_bottom": 72
+        "padding_bottom": 72,
+        "image_ratio": "portrait"
       }
     },
     "founder": {
       "type": "founder-message",
       "settings": {
         "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
-        "name": "Dibinātāja vārds",
+        "name": "Viktorija Miķelsone",
         "role": "NOON MATCHA dibinātājs/-a",
         "color_scheme": "scheme-1",
         "padding_top": 80,
-        "padding_bottom": 80
+        "padding_bottom": 80,
+        "use_default_background": true,
+        "full_width": true,
+        "background_overlay_opacity": 45,
+        "button_label": "PAR MUMS",
+        "button_link": "",
+        "button_style_secondary": false
       }
     },
     "commitment": {
@@ -131,7 +144,8 @@
             "title": "Tīrība un kvalitāte",
             "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas — svaiga, tīra un pilnībā izsekojama tās izcelsmē.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon": "checkmark"
           }
         },
         "column-2": {
@@ -140,7 +154,8 @@
             "title": "Estētika kā pieredze",
             "text": "<p>Katra detaļa — no tējas līdz bundžiņai — veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon": "square"
           }
         },
         "column-3": {
@@ -149,11 +164,16 @@
             "title": "Cieņa pret izcelsmi",
             "text": "<p>Mēs cienām Japānas tējas kultūru un tradīcijas. Tas, ko radām, tiek darīts ar cieņu, nevis atdarinājumu.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon": "circle"
           }
         }
       },
-      "block_order": ["column-1", "column-2", "column-3"],
+      "block_order": [
+        "column-1",
+        "column-2",
+        "column-3"
+      ],
       "settings": {
         "title": "Mūsu apņemšanās",
         "heading_size": "h1",
@@ -187,7 +207,11 @@
           "settings": {}
         }
       },
-      "block_order": ["collection-1", "collection-2", "collection-3"],
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-3"
+      ],
       "settings": {
         "title": "Iepirkties pēc kategorijas",
         "heading_size": "h1",
@@ -204,11 +228,30 @@
     "wholesale": {
       "type": "wholesale-partnership",
       "blocks": {
-        "h1": { "type": "highlight", "settings": { "label": "Vairumtirdzniecības cenas" } },
-        "h2": { "type": "highlight", "settings": { "label": "Personāla apmācība" } },
-        "h3": { "type": "highlight", "settings": { "label": "Reklāmas materiāli" } }
+        "h1": {
+          "type": "highlight",
+          "settings": {
+            "label": "Vairumtirdzniecības cenas"
+          }
+        },
+        "h2": {
+          "type": "highlight",
+          "settings": {
+            "label": "Personāla apmācība"
+          }
+        },
+        "h3": {
+          "type": "highlight",
+          "settings": {
+            "label": "Reklāmas materiāli"
+          }
+        }
       },
-      "block_order": ["h1", "h2", "h3"],
+      "block_order": [
+        "h1",
+        "h2",
+        "h3"
+      ],
       "settings": {
         "caption": "Kafejnīcām un studijām",
         "heading": "Piedāvā NOON savā letē",
@@ -253,7 +296,11 @@
           }
         }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
       "settings": {
         "caption": "Mūsu klientu iecienīts",
         "heading": "Ko saka mūsu klienti",
@@ -269,8 +316,8 @@
           "type": "location",
           "settings": {
             "tag": "Kafejnīca",
-            "name": "Pievieno partneru kafejnīcu",
-            "address": "Ielas adrese, Rīga",
+            "name": "Miera Maize",
+            "address": "Miera iela 89, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
             "map_link": ""
           }
@@ -279,8 +326,8 @@
           "type": "location",
           "settings": {
             "tag": "Studija",
-            "name": "Pievieno partneru studiju",
-            "address": "Ielas adrese, Rīga",
+            "name": "BACKDOOR MARKET",
+            "address": "Matīsa iela 8, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
             "map_link": ""
           }
@@ -288,15 +335,19 @@
         "loc-3": {
           "type": "location",
           "settings": {
-            "tag": "Veikals",
-            "name": "Pievieno tirdzniecības vietu",
-            "address": "Ielas adrese, Rīga",
+            "tag": "Picērija",
+            "name": "Divi Tomāti",
+            "address": "Krišjāņa Barona 44/46, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
             "map_link": ""
           }
         }
       },
-      "block_order": ["loc-1", "loc-2", "loc-3"],
+      "block_order": [
+        "loc-1",
+        "loc-2",
+        "loc-3"
+      ],
       "settings": {
         "caption": "Rīga, Latvija",
         "heading": "Atrodi NOON sev tuvāk",
@@ -306,39 +357,48 @@
         "padding_bottom": 72
       }
     },
-    "newsletter": {
-      "type": "email-signup-banner",
+    "instagram": {
+      "type": "instagram-feed",
+      "settings": {
+        "caption": "Sekojiet līdzi",
+        "heading": "Follow Us",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "instagram_url": "https://instagram.com/noonmatcha",
+        "instagram_handle": "@noonmatcha",
+        "image_ratio": "portrait",
+        "columns_desktop": "4",
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "background_overlay_opacity": 0,
+        "padding_top": 52,
+        "padding_bottom": 52
+      },
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Paliec rituālā",
-            "heading_size": "h1"
-          }
+        "ig1": {
+          "type": "image",
+          "settings": {}
         },
-        "paragraph": {
-          "type": "paragraph",
-          "settings": {
-            "text": "<p>Reizēm — ziņas par jaunumiem, uzpildēm un iemeslu apstāties plkst. 12.</p>",
-            "text_style": "body"
-          }
+        "ig2": {
+          "type": "image",
+          "settings": {}
         },
-        "form": {
-          "type": "email_form"
+        "ig3": {
+          "type": "image",
+          "settings": {}
+        },
+        "ig4": {
+          "type": "image",
+          "settings": {}
         }
       },
-      "block_order": ["heading", "paragraph", "form"],
-      "settings": {
-        "show_background_image": false,
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": true,
-        "color_scheme": "scheme-4",
-        "mobile_content_alignment": "center",
-        "show_text_below": true
-      }
+      "block_order": [
+        "ig1",
+        "ig2",
+        "ig3",
+        "ig4"
+      ]
     }
   },
   "order": [
@@ -351,6 +411,6 @@
     "wholesale",
     "reviews",
     "locations",
-    "newsletter"
+    "instagram"
   ]
 }

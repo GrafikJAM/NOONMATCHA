@@ -13,6 +13,18 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .noon-multicolumn__icon {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1.6rem;
+  }
+
+  .noon-multicolumn__icon img {
+    width: 4.4rem;
+    height: 4.4rem;
+    object-fit: contain;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -31,7 +43,7 @@
     {% endif %}
   >
     {%- unless section.settings.title == blank -%}
-      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title{% if section.settings.heading_alignment == 'center' %} noon-title-wrapper--center{% endif %}">
         <h2 class="title inline-richtext {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
@@ -119,6 +131,11 @@
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
+                {%- if block.settings.image == blank and block.settings.icon != blank and block.settings.icon != 'none' -%}
+                  <div class="noon-multicolumn__icon">
+                    <img src="{{ 'icon-' | append: block.settings.icon | append: '.png' | asset_url }}" alt="" loading="lazy" width="56" height="56">
+                  </div>
+                {%- endif -%}
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
@@ -232,6 +249,16 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left",
+      "label": "Heading alignment"
     },
     {
       "type": "header",
@@ -408,6 +435,19 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Shown above the title when no image above is set.",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "checkmark", "label": "Checkmark" },
+            { "value": "square", "label": "Square" },
+            { "value": "circle", "label": "Circle" }
+          ],
+          "default": "none"
         },
         {
           "type": "inline_richtext",
