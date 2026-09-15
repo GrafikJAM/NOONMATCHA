@@ -36,6 +36,16 @@
     }
   {%- endif %}
 
+  {%- if section.settings.transparent_header and request.page_type != "index" -%}
+    .header-wrapper--transparent {
+      --color-foreground: 0, 0, 0;
+    }
+
+    #MainContent {
+      padding-top: var(--noon-transparent-header-height, 140px);
+    }
+  {%- endif -%}
+
   {%- if section.settings.full_width %}
     .header.header--full-width {
       max-width: none;
@@ -358,6 +368,26 @@
     </div>
   </header>
 </{{ header_tag }}>
+
+{%- if section.settings.transparent_header and request.page_type != "index" -%}
+  <script>
+    (function () {
+      var noonHeaderEl = document.querySelector(".header-wrapper--transparent");
+      if (!noonHeaderEl) return;
+
+      function setNoonHeaderHeight() {
+        document.documentElement.style.setProperty("--noon-transparent-header-height", noonHeaderEl.offsetHeight + "px");
+      }
+
+      setNoonHeaderHeight();
+      window.addEventListener("resize", setNoonHeaderHeight);
+
+      if (window.ResizeObserver) {
+        new ResizeObserver(setNoonHeaderHeight).observe(noonHeaderEl);
+      }
+    })();
+  </script>
+{%- endif -%}
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
