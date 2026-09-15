@@ -114,12 +114,12 @@
         "step-3"
       ],
       "settings": {
-        "image_ratio": "portrait",
+        "image_ratio": "square",
         "image_position": "left",
         "caption": "Ilgtspēja",
         "heading": "Vairāk matcha, mazāk atkritumu",
         "heading_size": "h1",
-        "text": "<p>Katra NOON bundžiņa ir veidota, lai to uzpildītu, nevis nomainītu. Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "text": "<p>Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
         "button_label": "Iepirkties",
         "button_link": "shopify://collections/all",
         "button_style_secondary": false,
