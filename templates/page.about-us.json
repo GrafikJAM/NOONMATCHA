@@ -16,6 +16,9 @@
         "heading_size": "h1",
         "intro_text": "<p>Tieši tajā brīdī, kad saule ir visaugstāk debesīs, bet mūsu enerģija sāk dzist. Pēc pusdienām — kad prāts kļūst miglains, un ķermenis meklē līdzsvaru — mēs vēlējāmies atrast dabisku veidu, kā atjaunoties. Nevis ar vēl vienu kafijas krūzi vai cukuru. Bet ar kaut ko dziļāku. Klusāku. Spēcīgāku.</p>",
         "body_text": "<p>Mēs ticam, ka enerģija un estētika var būt apvienoti. Tāpēc rūpīgi izvēlamies tikai augstākās kvalitātes matcha no Japānas, un piedāvājam arī izsmalcinātus piederumus, kas padara pagatavošanas rituālu vienkāršu, skaistu un personīgu.</p>",
+        "centered_layout": true,
+        "min_height": 0,
+        "image_overlay_opacity": 40,
         "color_scheme": "scheme-1",
         "padding_top": 72,
         "padding_bottom": 48
@@ -39,6 +42,9 @@
         "vision_caption": "02",
         "vision_heading": "Vīzija",
         "vision_text": "<p>Veidot jaunu kultūru, kur dienas vidus kļūst par brīdi sev — apzinātam mirklim, mieram un patiesai enerģijai ar matcha kā rituāla centru.</p>",
+        "min_height": 0,
+        "image": "shopify://shop_images/F89C71C5-808B-4876-B2CE-6A57099D1FC1.jpg",
+        "image_overlay_opacity": 40,
         "color_scheme": "scheme-1",
         "padding_top": 64,
         "padding_bottom": 64
@@ -51,35 +57,40 @@
           "type": "value",
           "settings": {
             "title": "Apzinātība",
-            "text": "<p>Mēs veicinām iekšējo līdzsvaru — brīdi, kad atvienoties no steigas un pievērsties sev.</p>"
+            "text": "<p>Mēs veicinām iekšējo līdzsvaru — brīdi, kad atvienoties no steigas un pievērsties sev.</p>",
+            "color_scheme": ""
           }
         },
         "value-2": {
           "type": "value",
           "settings": {
             "title": "Kvalitāte un tīrība",
-            "text": "<p>Tikai augstākās kvalitātes ceremoniāla matcha no Japānas — svaiga, tīra, ar izsekojamu izcelsmi.</p>"
+            "text": "<p>Tikai augstākās kvalitātes ceremoniāla matcha no Japānas — svaiga, tīra, ar izsekojamu izcelsmi.</p>",
+            "color_scheme": ""
           }
         },
         "value-3": {
           "type": "value",
           "settings": {
             "title": "Estētika kā pieredze",
-            "text": "<p>Katra detaļa — no tējas līdz iepakojumam — ir radīta, lai vizuāli un emocionāli izbaudītu brīdi sev.</p>"
+            "text": "<p>Katra detaļa — no tējas līdz iepakojumam — ir radīta, lai vizuāli un emocionāli izbaudītu brīdi sev.</p>",
+            "color_scheme": ""
           }
         },
         "value-4": {
           "type": "value",
           "settings": {
             "title": "Enerģija bez stigmas",
-            "text": "<p>Mēs piedāvājam dabisku fokusu un mierīgu modrību — pretstatu trauksmainības stimulantiem.</p>"
+            "text": "<p>Mēs piedāvājam dabisku fokusu un mierīgu modrību — pretstatu trauksmainības stimulantiem.</p>",
+            "color_scheme": ""
           }
         },
         "value-5": {
           "type": "value",
           "settings": {
             "title": "Cieņa pret izcelsmi",
-            "text": "<p>Godājam japāņu tējas kultūru un zināšanas. Mēs radām to ar cieņu, nevis imitāciju.</p>"
+            "text": "<p>Godājam japāņu tējas kultūru un zināšanas. Mēs radām to ar cieņu, nevis imitāciju.</p>",
+            "color_scheme": ""
           }
         }
       },
