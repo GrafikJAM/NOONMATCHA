@@ -16,14 +16,14 @@
           "type": "heading",
           "settings": {
             "heading": "Atklāj brīdi sev ar NOON",
-            "heading_size": "hxl"
+            "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas — mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
-            "text_style": "subtitle"
+            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "buttons": {
@@ -114,6 +114,7 @@
         "step-3"
       ],
       "settings": {
+        "image": "shopify://shop_images/noon-29.jpg",
         "image_ratio": "square",
         "image_position": "left",
         "caption": "Ilgtspēja",
