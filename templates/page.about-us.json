@@ -19,7 +19,7 @@
         "centered_layout": true,
         "min_height": 0,
         "image_overlay_opacity": 40,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "padding_top": 72,
         "padding_bottom": 48
       }
@@ -28,7 +28,7 @@
       "type": "about-statement",
       "settings": {
         "text": "NOON MATCHA nav tikai tēja. Tā ir izvēle — par mieru, fokusu un sevi ik dienas.",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-4",
         "padding_top": 64,
         "padding_bottom": 64
       }
