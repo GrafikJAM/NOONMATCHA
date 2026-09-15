@@ -125,7 +125,7 @@
         "button_link": "shopify://collections/all",
         "button_style_secondary": false,
         "color_scheme": "scheme-5",
-        "full_width": false,
+        "full_width": true,
         "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
@@ -282,7 +282,7 @@
         "button_link": "",
         "button_style_secondary": false,
         "color_scheme": "scheme-4",
-        "full_width": false,
+        "full_width": true,
         "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
@@ -328,7 +328,7 @@
         "caption": "Mūsu klientu iecienīts",
         "heading": "Ko saka mūsu klienti",
         "color_scheme": "scheme-2",
-        "full_width": false,
+        "full_width": true,
         "background_overlay_opacity": 0,
         "padding_top": 72,
         "padding_bottom": 72
