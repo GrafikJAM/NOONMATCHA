@@ -27,9 +27,29 @@
   }
 
   .noon-about-values__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 3.6rem 3.2rem;
+  }
+
+  .noon-about-values__item {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .noon-about-values__item {
+      flex: 0 0 calc((100% - 3.2rem) / 2);
+      max-width: calc((100% - 3.2rem) / 2);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .noon-about-values__item {
+      flex: 0 0 calc((100% - 3.2rem * 2) / 3);
+      max-width: calc((100% - 3.2rem * 2) / 3);
+    }
   }
 
   .noon-about-values__number {
