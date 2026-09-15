@@ -231,6 +231,7 @@
         "collection-2",
         "collection-3"
       ],
+      "disabled": true,
       "settings": {
         "title": "Iepirkties pēc kategorijas",
         "heading_size": "h1",
@@ -422,7 +423,7 @@
       ],
       "settings": {
         "caption": "Sekojiet līdzi",
-        "heading": "Follow Us",
+        "heading": "@noonmatcha",
         "heading_size": "h1",
         "heading_alignment": "center",
         "instagram_url": "https://instagram.com/noonmatcha",
@@ -431,7 +432,7 @@
         "image_ratio": "portrait",
         "columns_desktop": "4",
         "columns_mobile": "2",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
         "full_width": false,
         "background_overlay_opacity": 0,
         "padding_top": 52,
