@@ -52,9 +52,53 @@
     line-height: 1.65;
     color: rgba(var(--color-foreground), 0.8);
   }
+
+  {%- if section.settings.min_height > 0 -%}
+    .noon-about-mv__grid {
+      min-height: {{ section.settings.min_height }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .noon-about-mv__grid {
+        align-items: center;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.image != blank -%}
+    .noon-about-mv--has-image {
+      position: relative;
+      background-image: url({{ section.settings.image | image_url: width: 1500 }});
+      background-size: cover;
+      background-position: center;
+    }
+
+    .noon-about-mv--has-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgb(0 0 0 / {{ section.settings.image_overlay_opacity | divided_by: 100.0 }});
+      pointer-events: none;
+    }
+
+    .noon-about-mv--has-image .page-width {
+      position: relative;
+      z-index: 1;
+    }
+
+    .noon-about-mv--has-image .noon-about-mv__col--first {
+      border-right-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .noon-about-mv--has-image .noon-about-mv__caption,
+    .noon-about-mv--has-image .noon-about-mv__heading,
+    .noon-about-mv--has-image .noon-about-mv__text {
+      color: rgb(255 255 255);
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="color-{{ section.settings.color_scheme }} gradient{% if section.settings.image != blank %} noon-about-mv--has-image{% endif %}">
   <div class="page-width section-{{ section.id }}-padding">
     <div class="noon-about-mv__grid">
       <div class="noon-about-mv__col noon-about-mv__col--first">
@@ -132,6 +176,32 @@
     {
       "type": "header",
       "content": "Section"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 0,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Minimum height",
+      "info": "Set above 0 to give the columns more vertical room.",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay darkness",
+      "default": 40
     },
     {
       "type": "color_scheme",

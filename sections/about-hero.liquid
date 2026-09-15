@@ -29,6 +29,46 @@
     }
   }
 
+  {%- if section.settings.min_height > 0 -%}
+    .noon-about-hero__grid {
+      min-height: {{ section.settings.min_height }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .noon-about-hero__grid {
+        align-items: center;
+      }
+    }
+  {%- endif -%}
+
+  {%- if section.settings.image != blank -%}
+    .noon-about-hero--has-image {
+      position: relative;
+      background-image: url({{ section.settings.image | image_url: width: 1500 }});
+      background-size: cover;
+      background-position: center;
+    }
+
+    .noon-about-hero--has-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgb(0 0 0 / {{ section.settings.image_overlay_opacity | divided_by: 100.0 }});
+      pointer-events: none;
+    }
+
+    .noon-about-hero--has-image .page-width {
+      position: relative;
+      z-index: 1;
+    }
+
+    .noon-about-hero--has-image .noon-about-hero__heading,
+    .noon-about-hero--has-image .noon-about-hero__lead,
+    .noon-about-hero--has-image .noon-about-hero__body > * {
+      color: rgb(255 255 255);
+    }
+  {%- endif -%}
+
   .noon-about-hero--centered .noon-about-hero__title {
     text-align: center;
   }
@@ -73,7 +113,7 @@
 
 {%- assign noon_hero_centered = section.settings.centered_layout -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient{% if noon_hero_centered %} noon-about-hero--centered{% endif %}">
+<div class="color-{{ section.settings.color_scheme }} gradient{% if noon_hero_centered %} noon-about-hero--centered{% endif %}{% if section.settings.image != blank %} noon-about-hero--has-image{% endif %}">
   <div class="page-width section-{{ section.id }}-padding">
     <h1 class="noon-about-hero__title page-title h0 visually-hidden">
       {{ page.title | escape }}
@@ -154,6 +194,32 @@
       "id": "centered_layout",
       "label": "Center content (single column)",
       "default": false
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 0,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "label": "Minimum height",
+      "info": "Set above 0 to give the columns more vertical room.",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Image overlay darkness",
+      "default": 40
     },
     {
       "type": "color_scheme",
