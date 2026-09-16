@@ -31,22 +31,20 @@
   }
 {%- endstyle -%}
 
-{%- if section.settings.heading != blank or collection.description != blank -%}
-  <div id="collection-full-description" class="color-{{ section.settings.color_scheme }} gradient">
-    <div class="page-width section-{{ section.id }}-padding">
-      <div class="noon-collection-full__inner">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="noon-collection-full__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
-        {%- endif -%}
-        {%- if collection.description != blank -%}
-          <div class="noon-collection-full__text rte {{ section.settings.text_size }}">
-            {{ collection.description }}
-          </div>
-        {%- endif -%}
-      </div>
+<div id="collection-full-description" class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="noon-collection-full__inner">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="noon-collection-full__heading {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if collection.description != blank -%}
+        <div class="noon-collection-full__text rte {{ section.settings.text_size }}">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
     </div>
   </div>
-{%- endif -%}
+</div>
 
 {% schema %}
 {
