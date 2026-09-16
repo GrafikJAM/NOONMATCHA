@@ -25,6 +25,23 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .footer__logo-wordmark {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .footer__logo-wordmark svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer__logo-wordmark svg path {
+    fill: currentColor;
+  }
+
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -319,6 +336,11 @@
       </div>
     </div>
   </div>
+  {%- if section.settings.show_logo_wordmark -%}
+    <div class="footer__logo-wordmark">
+      {{ 'noon-logo-wordmark.svg' | inline_asset_content }}
+    </div>
+  {%- endif -%}
 </footer>
 
 {% schema %}
@@ -429,6 +451,13 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo_wordmark",
+      "default": true,
+      "label": "Show large logo wordmark",
+      "info": "Displays a full-width NOON MATCHA logo at the bottom of the footer."
     },
     {
       "type": "header",
