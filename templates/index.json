@@ -279,7 +279,7 @@
         "heading_size": "h1",
         "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
         "button_label": "Pieteikties vairumtirdzniecībai",
-        "button_link": "",
+        "button_link": "shopify://pages/noon-matcha-horeca-pricing",
         "button_style_secondary": false,
         "color_scheme": "scheme-4",
         "full_width": true,
