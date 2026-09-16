@@ -15,10 +15,13 @@
         "heading": "NOON MATCHA dzima dienas vidū",
         "heading_size": "h1",
         "intro_text": "<p>Tieši tajā brīdī, kad saule ir visaugstāk debesīs, bet mūsu enerģija sāk dzist. Pēc pusdienām — kad prāts kļūst miglains, un ķermenis meklē līdzsvaru — mēs vēlējāmies atrast dabisku veidu, kā atjaunoties. Nevis ar vēl vienu kafijas krūzi vai cukuru. Bet ar kaut ko dziļāku. Klusāku. Spēcīgāku.</p>",
+        "lead_text_size": "noon-text-xl",
         "body_text": "<p>Mēs ticam, ka enerģija un estētika var būt apvienoti. Tāpēc rūpīgi izvēlamies tikai augstākās kvalitātes matcha no Japānas, un piedāvājam arī izsmalcinātus piederumus, kas padara pagatavošanas rituālu vienkāršu, skaistu un personīgu.</p>",
+        "body_text_size": "noon-text-m",
         "centered_layout": true,
         "min_height": 0,
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/NOON_Social_Icons-06.jpg",
+        "image_overlay_opacity": 70,
         "color_scheme": "scheme-2",
         "padding_top": 72,
         "padding_bottom": 48
@@ -28,6 +31,7 @@
       "type": "about-statement",
       "settings": {
         "text": "NOON MATCHA nav tikai tēja. Tā ir izvēle — par mieru, fokusu un sevi ik dienas.",
+        "text_size": "m",
         "color_scheme": "scheme-4",
         "padding_top": 64,
         "padding_bottom": 64
@@ -38,11 +42,15 @@
       "settings": {
         "mission_caption": "01",
         "mission_heading": "Misija",
+        "mission_heading_size": "h1",
         "mission_text": "<p>Radīt mierpilnu brīdi dienas virsotnē — rituālu ar matcha, kas savieno estētiku, fokusu un dabiski atjaunotu enerģiju.</p>",
+        "mission_text_size": "noon-text-m",
         "vision_caption": "02",
         "vision_heading": "Vīzija",
+        "vision_heading_size": "h1",
         "vision_text": "<p>Veidot jaunu kultūru, kur dienas vidus kļūst par brīdi sev — apzinātam mirklim, mieram un patiesai enerģijai ar matcha kā rituāla centru.</p>",
-        "min_height": 0,
+        "vision_text_size": "noon-text-m",
+        "min_height": 300,
         "image": "shopify://shop_images/F89C71C5-808B-4876-B2CE-6A57099D1FC1.jpg",
         "image_overlay_opacity": 40,
         "color_scheme": "scheme-1",
@@ -57,7 +65,9 @@
           "type": "value",
           "settings": {
             "title": "Apzinātība",
+            "heading_size": "h4",
             "text": "<p>Mēs veicinām iekšējo līdzsvaru — brīdi, kad atvienoties no steigas un pievērsties sev.</p>",
+            "text_size": "noon-text-m",
             "color_scheme": ""
           }
         },
@@ -65,7 +75,9 @@
           "type": "value",
           "settings": {
             "title": "Kvalitāte un tīrība",
+            "heading_size": "h4",
             "text": "<p>Tikai augstākās kvalitātes ceremoniāla matcha no Japānas — svaiga, tīra, ar izsekojamu izcelsmi.</p>",
+            "text_size": "noon-text-m",
             "color_scheme": ""
           }
         },
@@ -73,7 +85,9 @@
           "type": "value",
           "settings": {
             "title": "Estētika kā pieredze",
+            "heading_size": "h4",
             "text": "<p>Katra detaļa — no tējas līdz iepakojumam — ir radīta, lai vizuāli un emocionāli izbaudītu brīdi sev.</p>",
+            "text_size": "noon-text-m",
             "color_scheme": ""
           }
         },
@@ -81,7 +95,9 @@
           "type": "value",
           "settings": {
             "title": "Enerģija bez stigmas",
+            "heading_size": "h4",
             "text": "<p>Mēs piedāvājam dabisku fokusu un mierīgu modrību — pretstatu trauksmainības stimulantiem.</p>",
+            "text_size": "noon-text-m",
             "color_scheme": ""
           }
         },
@@ -89,7 +105,9 @@
           "type": "value",
           "settings": {
             "title": "Cieņa pret izcelsmi",
+            "heading_size": "h4",
             "text": "<p>Godājam japāņu tējas kultūru un zināšanas. Mēs radām to ar cieņu, nevis imitāciju.</p>",
+            "text_size": "noon-text-m",
             "color_scheme": ""
           }
         }
@@ -102,6 +120,7 @@
         "value-5"
       ],
       "settings": {
+        "caption": "",
         "heading": "Vērtības",
         "heading_size": "h1",
         "heading_alignment": "center",
