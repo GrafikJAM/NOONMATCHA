@@ -14,7 +14,8 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-3",
+        "show_logo_wordmark": true,
         "newsletter_enable": true,
         "newsletter_heading": "Pieraksties jaunumiem",
         "enable_follow_on_shop": true,
