@@ -1,0 +1,38 @@
+/* Shared paragraph/text size scale used across NOON MATCHA custom sections. */
+.noon-text-s {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.noon-text-m {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.noon-text-l {
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
+.noon-text-xl {
+  font-size: 1.9rem;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 750px) {
+  .noon-text-s {
+    font-size: 1.35rem;
+  }
+
+  .noon-text-m {
+    font-size: 1.6rem;
+  }
+
+  .noon-text-l {
+    font-size: 1.8rem;
+  }
+
+  .noon-text-xl {
+    font-size: 2.1rem;
+  }
+}

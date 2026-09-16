@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -35,7 +37,6 @@
     justify-content: center;
     gap: 1.2rem 2.4rem;
     font-family: var(--font-body-family);
-    font-size: 1.4rem;
   }
 
   .noon-wholesale__list li::before {
@@ -97,13 +98,13 @@
     {%- endif -%}
 
     {%- if section.settings.text != blank -%}
-      <div class="rte">{{ section.settings.text }}</div>
+      <div class="rte {{ section.settings.text_size }}">{{ section.settings.text }}</div>
     {%- endif -%}
 
     {%- if section.blocks.size > 0 -%}
       <ul class="noon-wholesale__list">
         {%- for block in section.blocks -%}
-          <li {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</li>
+          <li class="{{ block.settings.text_size }}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</li>
         {%- endfor -%}
       </ul>
     {%- endif -%}
@@ -145,8 +146,10 @@
       "type": "select",
       "id": "heading_size",
       "options": [
+        { "value": "h3", "label": "Small" },
         { "value": "h2", "label": "Medium" },
-        { "value": "h1", "label": "Large" }
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
       ],
       "default": "h1",
       "label": "Heading size"
@@ -156,6 +159,18 @@
       "id": "text",
       "default": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
       "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-m",
+      "label": "Text size"
     },
     {
       "type": "text",
@@ -244,6 +259,17 @@
           "id": "label",
           "default": "Vairumtirdzniecības cenas",
           "label": "Label"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "noon-text-s", "label": "Small" },
+            { "value": "noon-text-m", "label": "Medium" },
+            { "value": "noon-text-l", "label": "Large" }
+          ],
+          "default": "noon-text-s",
+          "label": "Text size"
         }
       ]
     }

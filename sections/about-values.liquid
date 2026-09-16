@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -106,14 +108,11 @@
 
   .noon-value-card__title {
     margin: 0;
-    font-size: 1.6rem;
     font-weight: 700;
   }
 
   .noon-value-card__text {
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 1.5;
     color: rgba(var(--color-foreground), 0.75);
   }
 
@@ -146,10 +145,10 @@
               <div class="noon-value-card__content">
                 <span class="noon-value-card__number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
                 {%- if block.settings.title != blank -%}
-                  <h3 class="noon-value-card__title">{{ block.settings.title | escape }}</h3>
+                  <h3 class="noon-value-card__title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h3>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
-                  <div class="noon-value-card__text">{{ block.settings.text }}</div>
+                  <div class="noon-value-card__text {{ block.settings.text_size }}">{{ block.settings.text }}</div>
                 {%- endif -%}
               </div>
             </div>
@@ -183,7 +182,8 @@
       "options": [
         { "value": "h3", "label": "Small" },
         { "value": "h2", "label": "Medium" },
-        { "value": "h1", "label": "Large" }
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
       ],
       "default": "h1",
       "label": "Heading size"
@@ -245,9 +245,33 @@
           "label": "Title"
         },
         {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h5", "label": "Small" },
+            { "value": "h4", "label": "Medium" },
+            { "value": "h3", "label": "Large" },
+            { "value": "h2", "label": "Extra large" }
+          ],
+          "default": "h4",
+          "label": "Title size"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "noon-text-s", "label": "Small" },
+            { "value": "noon-text-m", "label": "Medium" },
+            { "value": "noon-text-l", "label": "Large" },
+            { "value": "noon-text-xl", "label": "Extra large" }
+          ],
+          "default": "noon-text-m",
+          "label": "Text size"
         },
         {
           "type": "color_scheme",

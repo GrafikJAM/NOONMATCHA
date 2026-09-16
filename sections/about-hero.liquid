@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -95,15 +97,14 @@
 
   .noon-about-hero__lead {
     margin: 0;
-    font-size: 1.9rem;
-    line-height: 1.45;
+  }
+
+  .noon-about-hero__body {
+    color: rgba(var(--color-foreground), 0.75);
   }
 
   .noon-about-hero__body > * {
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 1.7;
-    color: rgba(var(--color-foreground), 0.75);
   }
 
   .noon-about-hero__body > * + * {
@@ -126,10 +127,10 @@
             <h2 class="noon-about-hero__heading {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
           {%- endif -%}
           {%- if section.settings.intro_text != blank -%}
-            <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
+            <div class="noon-about-hero__lead {{ section.settings.lead_text_size }}">{{ section.settings.intro_text }}</div>
           {%- endif -%}
           {%- if section.settings.body_text != blank -%}
-            <div class="noon-about-hero__body">{{ section.settings.body_text }}</div>
+            <div class="noon-about-hero__body {{ section.settings.body_text_size }}">{{ section.settings.body_text }}</div>
           {%- endif -%}
         </div>
       </div>
@@ -142,10 +143,10 @@
         </div>
         <div>
           {%- if section.settings.intro_text != blank -%}
-            <div class="noon-about-hero__lead">{{ section.settings.intro_text }}</div>
+            <div class="noon-about-hero__lead {{ section.settings.lead_text_size }}">{{ section.settings.intro_text }}</div>
           {%- endif -%}
           {%- if section.settings.body_text != blank -%}
-            <div class="noon-about-hero__body">{{ section.settings.body_text }}</div>
+            <div class="noon-about-hero__body {{ section.settings.body_text_size }}">{{ section.settings.body_text }}</div>
           {%- endif -%}
         </div>
       </div>
@@ -184,10 +185,34 @@
       "default": "<p>Tieši tajā brīdī, kad saule ir visaugstāk debesīs, bet mūsu enerģija sāk dzist. Pēc pusdienām — kad prāts kļūst miglains, un ķermenis meklē līdzsvaru — mēs vēlējāmies atrast dabisku veidu, kā atjaunoties. Nevis ar vēl vienu kafijas krūzi vai cukuru. Bet ar kaut ko dziļāku. Klusāku. Spēcīgāku.</p>"
     },
     {
+      "type": "select",
+      "id": "lead_text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-xl",
+      "label": "Lead paragraph size"
+    },
+    {
       "type": "richtext",
       "id": "body_text",
       "label": "Supporting text",
       "default": "<p>Mēs atradām atbildi Japānas senajā matcha rituālā — tajā brīdī, kad tēja nav tikai dzēriens, bet apzināts mirklis sev. NOON MATCHA radās, lai piedāvātu augstvērtīgu ceremoniālo matcha, kas sniedz ilgstošu, mierpilnu enerģiju un skaidrību, ko nevar salīdzinq ar mākslīgiem stimulatoriem.</p><p>Mēs ticam, ka enerģija un estētika var būt apvienoti. Tāpēc rūpīgi izvēlamies tikai augstākās kvalitātes matcha no Japānas, un piedāvājam arī izsmalcinātus piederumus, kas padara pagatavošanas rituālu vienkāršu, skaistu un personīgu.</p>"
+    },
+    {
+      "type": "select",
+      "id": "body_text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-m",
+      "label": "Supporting text size"
     },
     {
       "type": "checkbox",

@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -54,8 +56,6 @@
 
   .noon-testimonial__quote {
     margin: 0;
-    font-size: 1.6rem;
-    line-height: 1.5;
   }
 
   .noon-testimonial__author {
@@ -113,7 +113,7 @@
       <p class="caption-with-letter-spacing">{{ section.settings.caption | escape }}</p>
     {%- endif -%}
     {%- if section.settings.heading != blank -%}
-      <h2 class="h1">{{ section.settings.heading }}</h2>
+      <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
     {%- endif -%}
   </div>
 
@@ -127,7 +127,7 @@
             </span>
           {%- endif -%}
           {%- if block.settings.quote != blank -%}
-            <p class="noon-testimonial__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+            <p class="noon-testimonial__quote {{ block.settings.text_size }}">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
           {%- endif -%}
           {%- if block.settings.author != blank -%}
             <p class="noon-testimonial__author">
@@ -158,6 +158,18 @@
       "id": "heading",
       "default": "Ko saka mūsu klienti",
       "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
     },
     {
       "type": "color_scheme",
@@ -236,6 +248,18 @@
           "id": "quote",
           "default": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
           "label": "Quote"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "noon-text-s", "label": "Small" },
+            { "value": "noon-text-m", "label": "Medium" },
+            { "value": "noon-text-l", "label": "Large" },
+            { "value": "noon-text-xl", "label": "Extra large" }
+          ],
+          "default": "noon-text-m",
+          "label": "Quote size"
         },
         {
           "type": "text",

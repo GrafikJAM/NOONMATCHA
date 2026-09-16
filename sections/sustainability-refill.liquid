@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -178,7 +180,7 @@
       {%- endif -%}
 
       {%- if section.settings.text != blank -%}
-        <div class="rte">{{ section.settings.text }}</div>
+        <div class="rte {{ section.settings.text_size }}">{{ section.settings.text }}</div>
       {%- endif -%}
 
       {%- if section.blocks.size > 0 -%}
@@ -188,10 +190,10 @@
               <span class="noon-refill__step-number">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
               <span>
                 {%- if block.settings.title != blank -%}
-                  <p class="h5 noon-refill__step-title">{{ block.settings.title | escape }}</p>
+                  <p class="noon-refill__step-title {{ block.settings.heading_size }}">{{ block.settings.title | escape }}</p>
                 {%- endif -%}
                 {%- if block.settings.text != blank -%}
-                  <p class="noon-refill__step-text">{{ block.settings.text | escape }}</p>
+                  <p class="noon-refill__step-text {{ block.settings.text_size }}">{{ block.settings.text | escape }}</p>
                 {%- endif -%}
               </span>
             </li>
@@ -264,6 +266,7 @@
       "type": "select",
       "id": "heading_size",
       "options": [
+        { "value": "h3", "label": "Small" },
         { "value": "h2", "label": "Medium" },
         { "value": "h1", "label": "Large" },
         { "value": "h0", "label": "Extra large" }
@@ -276,6 +279,18 @@
       "id": "text",
       "default": "<p>Katra NOON bundžiņa ir veidota, lai to uzpildītu, nevis nomainītu. Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
       "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-m",
+      "label": "Text size"
     },
     {
       "type": "text",
@@ -365,10 +380,33 @@
           "label": "Title"
         },
         {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h5", "label": "Small" },
+            { "value": "h4", "label": "Medium" },
+            { "value": "h3", "label": "Large" },
+            { "value": "h2", "label": "Extra large" }
+          ],
+          "default": "h5",
+          "label": "Title size"
+        },
+        {
           "type": "text",
           "id": "text",
           "default": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
           "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "options": [
+            { "value": "noon-text-s", "label": "Small" },
+            { "value": "noon-text-m", "label": "Medium" },
+            { "value": "noon-text-l", "label": "Large" }
+          ],
+          "default": "noon-text-s",
+          "label": "Text size"
         }
       ]
     }

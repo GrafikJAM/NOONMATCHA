@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -48,8 +50,6 @@
 
   .noon-about-mv__text {
     margin: 0;
-    font-size: 1.6rem;
-    line-height: 1.65;
     color: rgba(var(--color-foreground), 0.8);
   }
 
@@ -104,19 +104,19 @@
       <div class="noon-about-mv__col noon-about-mv__col--first">
         <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.mission_caption | escape }}</span>
         {%- if section.settings.mission_heading != blank -%}
-          <h2 class="noon-about-mv__heading h1">{{ section.settings.mission_heading }}</h2>
+          <h2 class="noon-about-mv__heading {{ section.settings.mission_heading_size }}">{{ section.settings.mission_heading }}</h2>
         {%- endif -%}
         {%- if section.settings.mission_text != blank -%}
-          <div class="noon-about-mv__text">{{ section.settings.mission_text }}</div>
+          <div class="noon-about-mv__text {{ section.settings.mission_text_size }}">{{ section.settings.mission_text }}</div>
         {%- endif -%}
       </div>
       <div class="noon-about-mv__col noon-about-mv__col--last">
         <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.vision_caption | escape }}</span>
         {%- if section.settings.vision_heading != blank -%}
-          <h2 class="noon-about-mv__heading h1">{{ section.settings.vision_heading }}</h2>
+          <h2 class="noon-about-mv__heading {{ section.settings.vision_heading_size }}">{{ section.settings.vision_heading }}</h2>
         {%- endif -%}
         {%- if section.settings.vision_text != blank -%}
-          <div class="noon-about-mv__text">{{ section.settings.vision_text }}</div>
+          <div class="noon-about-mv__text {{ section.settings.vision_text_size }}">{{ section.settings.vision_text }}</div>
         {%- endif -%}
       </div>
     </div>
@@ -146,10 +146,34 @@
       "default": "Misija"
     },
     {
+      "type": "select",
+      "id": "mission_heading_size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
       "type": "richtext",
       "id": "mission_text",
       "label": "Text",
       "default": "<p>Radīt mierpilnu brīdi dienas virsotnē — rituālu ar matcha, kas savieno estētiku, fokusu un dabiski atjaunotu enerģiju.</p>"
+    },
+    {
+      "type": "select",
+      "id": "mission_text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-m",
+      "label": "Text size"
     },
     {
       "type": "header",
@@ -168,10 +192,34 @@
       "default": "Vīzija"
     },
     {
+      "type": "select",
+      "id": "vision_heading_size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
       "type": "richtext",
       "id": "vision_text",
       "label": "Text",
       "default": "<p>Veidot jaunu kultūru, kur dienas vidus kļūst par brīdi sev — apzinātam mirklim, mieram un patiesai enerģijai ar matcha kā rituāla centru.</p>"
+    },
+    {
+      "type": "select",
+      "id": "vision_text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-m",
+      "label": "Text size"
     },
     {
       "type": "header",

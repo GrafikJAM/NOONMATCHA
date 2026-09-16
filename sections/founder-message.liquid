@@ -1,3 +1,5 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -51,7 +53,6 @@
 
   .noon-founder__quote {
     font-family: var(--font-heading-family);
-    font-size: 2.6rem;
     line-height: 1.25;
     margin: 0;
     font-style: normal;
@@ -59,15 +60,42 @@
     padding-left: 0;
   }
 
+  .noon-founder__quote--s {
+    font-size: 2rem;
+  }
+
+  .noon-founder__quote--m {
+    font-size: 2.6rem;
+  }
+
+  .noon-founder__quote--l {
+    font-size: 3.2rem;
+  }
+
+  .noon-founder__quote--xl {
+    font-size: 3.8rem;
+  }
+
   @media screen and (min-width: 990px) {
-    .noon-founder__quote {
+    .noon-founder__quote--s {
+      font-size: 2.6rem;
+    }
+
+    .noon-founder__quote--m {
       font-size: 3.4rem;
+    }
+
+    .noon-founder__quote--l {
+      font-size: 4.2rem;
+    }
+
+    .noon-founder__quote--xl {
+      font-size: 5rem;
     }
   }
 
   .noon-founder__attribution {
     font-family: var(--font-body-family);
-    font-size: 1.4rem;
     color: rgba(var(--color-foreground), 0.65);
   }
 
@@ -131,11 +159,11 @@
       </div>
     {%- endif -%}
 
-    <blockquote class="noon-founder__quote">
+    <blockquote class="noon-founder__quote noon-founder__quote--{{ section.settings.quote_size }}">
       {{ section.settings.quote }}
     </blockquote>
 
-    <p class="noon-founder__attribution">
+    <p class="noon-founder__attribution {{ section.settings.attribution_text_size }}">
       <strong>{{ section.settings.name | escape }}</strong>{% if section.settings.role != blank %}, {{ section.settings.role | escape }}{% endif %}
     </p>
 
@@ -178,6 +206,18 @@
       "label": "Quote"
     },
     {
+      "type": "select",
+      "id": "quote_size",
+      "options": [
+        { "value": "s", "label": "Small" },
+        { "value": "m", "label": "Medium" },
+        { "value": "l", "label": "Large" },
+        { "value": "xl", "label": "Extra large" }
+      ],
+      "default": "m",
+      "label": "Quote size"
+    },
+    {
       "type": "text",
       "id": "name",
       "default": "Dibinātāja vārds",
@@ -188,6 +228,17 @@
       "id": "role",
       "default": "NOON MATCHA dibinātājs/-a",
       "label": "Role"
+    },
+    {
+      "type": "select",
+      "id": "attribution_text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" }
+      ],
+      "default": "noon-text-s",
+      "label": "Name / role text size"
     },
     {
       "type": "header",
