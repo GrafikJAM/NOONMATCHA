@@ -44,6 +44,26 @@
     #MainProduct-{{ section.id }} .page-width {
       max-width: none;
     }
+
+    /* NOON MATCHA: split the media/info columns exactly 50/50 on desktop,
+       overriding whichever media_size ('large' = 65/35, etc.) is chosen
+       in the section settings. */
+    @media screen and (min-width: 990px) {
+      #MainProduct-{{ section.id }} .product__media-wrapper {
+        max-width: 50%;
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+      }
+
+      #MainProduct-{{ section.id }} .product__info-wrapper {
+        max-width: 50%;
+        width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+        padding: 0 0 0 4rem;
+      }
+
+      #MainProduct-{{ section.id }} .product--right .product__info-wrapper {
+        padding: 0 4rem 0 0;
+      }
+    }
   {%- endstyle -%}
 
   <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
