@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   @media screen and (max-width: 749px) {
@@ -7,7 +8,22 @@
       padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
     }
   }
+
+  .collection-hero__description-button {
+    margin-top: 1.6rem;
+  }
 {%- endstyle -%}
+
+{%- liquid
+  assign noon_full_desc = collection.description | strip_html | strip_newlines
+  assign noon_word_limit = section.settings.short_description_word_limit
+  assign noon_short_desc = noon_full_desc | truncatewords: noon_word_limit
+  assign noon_word_count = noon_full_desc | split: ' ' | size
+  assign noon_desc_truncated = false
+  if noon_word_count > noon_word_limit
+    assign noon_desc_truncated = true
+  endif
+-%}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
@@ -17,8 +33,16 @@
         {{- collection.title | escape -}}
       </h1>
 
-      {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+      {%- if section.settings.show_collection_description and noon_full_desc != blank -%}
+        <div class="collection-hero__description rte {{ section.settings.text_size }}">{{ noon_short_desc }}</div>
+
+        {%- if noon_desc_truncated and section.settings.button_label != blank -%}
+          <div class="collection-hero__description-button">
+            <a href="#collection-full-description" class="button button--secondary">
+              {{- section.settings.button_label | escape -}}
+            </a>
+          </div>
+        {%- endif -%}
       {%- endif -%}
     </div>
 
@@ -59,6 +83,35 @@
       "id": "show_collection_description",
       "default": true,
       "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "range",
+      "id": "short_description_word_limit",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "label": "Short description length (words)",
+      "info": "The collection's full Description (set in Admin) is trimmed to this many words here. The untrimmed version shows in full further down the page, in the 'Collection full description' section, when a 'Uzzini vairāk' button is shown."
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-l",
+      "label": "Description text size"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Read more button label",
+      "default": "Uzzini vairāk",
+      "info": "Only shown when the description above is actually trimmed. Jumps down to the 'Collection full description' section — add that section after the product grid."
     },
     {
       "type": "checkbox",
