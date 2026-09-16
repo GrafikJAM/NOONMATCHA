@@ -1,0 +1,145 @@
+{{ 'noon-text-scale.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .noon-collection-intro {
+    max-width: 62rem;
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+    gap: 1.6rem;
+  }
+
+  .noon-collection-intro__heading {
+    margin: 0;
+  }
+
+  .noon-collection-intro__text {
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  .noon-collection-intro__button {
+    margin-top: 0.8rem;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="noon-collection-intro">
+      <h1 class="noon-collection-intro__heading {{ section.settings.heading_size }}">
+        {{ collection.title }}
+      </h1>
+
+      {%- if section.settings.short_description != blank -%}
+        <div class="noon-collection-intro__text {{ section.settings.text_size }}">
+          {{ section.settings.short_description }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <div class="noon-collection-intro__button">
+          <a href="#collection-full-description" class="button button--secondary">
+            {{- section.settings.button_label | escape -}}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection intro",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows the collection title automatically. Add a short blurb below it and a button that jumps down to the full description section (place a 'Collection full description' section after the product grid)."
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "short_description",
+      "label": "Short description",
+      "info": "A brief 1-2 sentence summary. Put the full, detailed description in the collection's own Description field (Admin) — it will show automatically in the 'Collection full description' section below the products."
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "options": [
+        { "value": "noon-text-s", "label": "Small" },
+        { "value": "noon-text-m", "label": "Medium" },
+        { "value": "noon-text-l", "label": "Large" },
+        { "value": "noon-text-xl", "label": "Extra large" }
+      ],
+      "default": "noon-text-l",
+      "label": "Text size"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Uzzini vairāk",
+      "info": "Leave blank to hide. Links to the 'Collection full description' section."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 32
+    }
+  ],
+  "presets": [
+    { "name": "Collection intro" }
+  ]
+}
+{% endschema %}
