@@ -305,6 +305,33 @@ a.product__text {
   font-weight: 600;
 }
 
+/* NOON MATCHA: the product description's spec table (label | value rows,
+   e.g. "Tejas nosaukums", "Pakape"...) should split its two columns
+   evenly and sit much more compactly than Dawn's roomy default RTE
+   table spacing. */
+.product__description table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.product__description table td,
+.product__description table th {
+  width: 50%;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  vertical-align: top;
+}
+
+.product__description table td > *,
+.product__description table th > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product__description table tr {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
 .product--no-media .product__title,
 .product--no-media .product__text,
 .product--no-media .product__tax,
