@@ -20,8 +20,8 @@
         "body_text_size": "noon-text-m",
         "centered_layout": true,
         "min_height": 0,
-        "image": "shopify://shop_images/NOON_Social_Icons-06.jpg",
-        "image_overlay_opacity": 70,
+        "image": "shopify://shop_images/coffee-tea-bold-6.jpg",
+        "image_overlay_opacity": 50,
         "color_scheme": "scheme-2",
         "padding_top": 72,
         "padding_bottom": 48
@@ -65,50 +65,52 @@
           "type": "value",
           "settings": {
             "title": "Apzinātība",
-            "heading_size": "h4",
+            "heading_size": "h3",
             "text": "<p>Mēs veicinām iekšējo līdzsvaru — brīdi, kad atvienoties no steigas un pievērsties sev.</p>",
             "text_size": "noon-text-m",
-            "color_scheme": ""
+            "color_scheme": "scheme-4"
           }
         },
         "value-2": {
           "type": "value",
           "settings": {
             "title": "Kvalitāte un tīrība",
-            "heading_size": "h4",
+            "heading_size": "h3",
             "text": "<p>Tikai augstākās kvalitātes ceremoniāla matcha no Japānas — svaiga, tīra, ar izsekojamu izcelsmi.</p>",
             "text_size": "noon-text-m",
-            "color_scheme": ""
+            "color_scheme": "scheme-2"
           }
         },
         "value-3": {
           "type": "value",
           "settings": {
+            "image": "shopify://shop_images/DSC_3445-Edit.jpg",
             "title": "Estētika kā pieredze",
-            "heading_size": "h4",
+            "heading_size": "h3",
             "text": "<p>Katra detaļa — no tējas līdz iepakojumam — ir radīta, lai vizuāli un emocionāli izbaudītu brīdi sev.</p>",
             "text_size": "noon-text-m",
-            "color_scheme": ""
+            "color_scheme": "scheme-1"
           }
         },
         "value-4": {
           "type": "value",
           "settings": {
             "title": "Enerģija bez stigmas",
-            "heading_size": "h4",
+            "heading_size": "h3",
             "text": "<p>Mēs piedāvājam dabisku fokusu un mierīgu modrību — pretstatu trauksmainības stimulantiem.</p>",
             "text_size": "noon-text-m",
-            "color_scheme": ""
+            "color_scheme": "scheme-5"
           }
         },
         "value-5": {
           "type": "value",
           "settings": {
+            "image": "shopify://shop_images/Frame_1_2.jpg",
             "title": "Cieņa pret izcelsmi",
-            "heading_size": "h4",
+            "heading_size": "h3",
             "text": "<p>Godājam japāņu tējas kultūru un zināšanas. Mēs radām to ar cieņu, nevis imitāciju.</p>",
             "text_size": "noon-text-m",
-            "color_scheme": ""
+            "color_scheme": "scheme-4"
           }
         }
       },
