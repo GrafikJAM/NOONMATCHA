@@ -58,14 +58,14 @@
       "type": "featured-collection",
       "settings": {
         "collection": "all",
-        "products_to_show": 8,
+        "products_to_show": 4,
         "title": "Populārākie produkti",
         "heading_size": "h2",
         "heading_alignment": "center",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "columns_desktop": 4,
+        "columns_desktop": 2,
         "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
@@ -90,21 +90,27 @@
           "type": "step",
           "settings": {
             "title": "Pasūti savu ceremoniālo matcha",
-            "text": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei."
+            "heading_size": "h5",
+            "text": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
+            "text_size": "noon-text-s"
           }
         },
         "step-2": {
           "type": "step",
           "settings": {
             "title": "Atgriezies, uzpildi, atkārto",
-            "text": "Pasūti tikai matcha — tā pati bundžiņa, mazāk iepakojuma, labāka cena."
+            "heading_size": "h5",
+            "text": "Pasūti tikai matcha — tā pati bundžiņa, mazāk iepakojuma, labāka cena.",
+            "text_size": "noon-text-s"
           }
         },
         "step-3": {
           "type": "step",
           "settings": {
             "title": "Vairāk matcha, mazāk atkritumu",
-            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst maigāks pret planētu."
+            "heading_size": "h5",
+            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst maigāks pret planētu.",
+            "text_size": "noon-text-s"
           }
         }
       },
@@ -121,6 +127,7 @@
         "heading": "Vairāk matcha, mazāk atkritumu",
         "heading_size": "h1",
         "text": "<p>Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "text_size": "noon-text-m",
         "button_label": "Iepirkties",
         "button_link": "shopify://collections/all",
         "button_style_secondary": false,
@@ -135,8 +142,10 @@
       "type": "founder-message",
       "settings": {
         "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+        "quote_size": "m",
         "name": "Viktorija Miķelsone",
         "role": "NOON MATCHA dibinātājs/-a",
+        "attribution_text_size": "noon-text-s",
         "button_label": "PAR MUMS",
         "button_link": "",
         "button_style_secondary": false,
@@ -252,19 +261,22 @@
         "h1": {
           "type": "highlight",
           "settings": {
-            "label": "Vairumtirdzniecības cenas"
+            "label": "Vairumtirdzniecības cenas",
+            "text_size": "noon-text-s"
           }
         },
         "h2": {
           "type": "highlight",
           "settings": {
-            "label": "Personāla apmācība"
+            "label": "Personāla apmācība",
+            "text_size": "noon-text-s"
           }
         },
         "h3": {
           "type": "highlight",
           "settings": {
-            "label": "Reklāmas materiāli"
+            "label": "Reklāmas materiāli",
+            "text_size": "noon-text-s"
           }
         }
       },
@@ -278,6 +290,7 @@
         "heading": "Piedāvā NOON savā letē",
         "heading_size": "h1",
         "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
+        "text_size": "noon-text-m",
         "button_label": "Pieteikties vairumtirdzniecībai",
         "button_link": "shopify://pages/noon-matcha-horeca-pricing",
         "button_style_secondary": false,
@@ -296,6 +309,7 @@
           "settings": {
             "rating": 5,
             "quote": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
+            "text_size": "noon-text-m",
             "author": "Klienta vārds",
             "location": "Rīga"
           }
@@ -305,6 +319,7 @@
           "settings": {
             "rating": 5,
             "quote": "Miers un stabils fokuss bez kritiena. Manas pēcpusdienas tagad izskatās pavisam citādas.",
+            "text_size": "noon-text-m",
             "author": "Klienta vārds",
             "location": "Rīga"
           }
@@ -314,6 +329,7 @@
           "settings": {
             "rating": 5,
             "quote": "Uzpildes bundžiņa ir tik maza lieta, kas maina tik daudz. Mīlu šo rituālu.",
+            "text_size": "noon-text-m",
             "author": "Klienta vārds",
             "location": "Jūrmala"
           }
@@ -327,6 +343,7 @@
       "settings": {
         "caption": "Mūsu klientu iecienīts",
         "heading": "Ko saka mūsu klienti",
+        "heading_size": "h1",
         "color_scheme": "scheme-2",
         "full_width": true,
         "background_overlay_opacity": 0,
@@ -342,8 +359,10 @@
           "settings": {
             "tag": "Kafejnīca",
             "name": "Miera Maize",
+            "heading_size": "h4",
             "address": "Miera iela 89, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
+            "text_size": "noon-text-s",
             "map_link": ""
           }
         },
@@ -352,8 +371,10 @@
           "settings": {
             "tag": "Studija",
             "name": "BACKDOOR MARKET",
+            "heading_size": "h4",
             "address": "Matīsa iela 8, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
+            "text_size": "noon-text-s",
             "map_link": ""
           }
         },
@@ -362,8 +383,10 @@
           "settings": {
             "tag": "Picērija",
             "name": "Divi Tomāti",
+            "heading_size": "h4",
             "address": "Krišjāņa Barona 44/46, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
+            "text_size": "noon-text-s",
             "map_link": ""
           }
         }
@@ -376,7 +399,9 @@
       "settings": {
         "caption": "Rīga, Latvija",
         "heading": "Atrodi NOON sev tuvāk",
+        "heading_size": "h1",
         "text": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
+        "text_size": "noon-text-m",
         "color_scheme": "scheme-1",
         "full_width": true,
         "background_overlay_opacity": 0,
