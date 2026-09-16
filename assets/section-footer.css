@@ -295,11 +295,10 @@
   margin-top: 1.5rem;
 }
 
-@media screen and (min-width: 750px) {
-  .footer__content-bottom-wrapper:not(.footer__content-bottom-wrapper--center) .footer__copyright {
-    text-align: right;
-  }
-}
+/* NOON MATCHA: keep the copyright/policy links row centered on desktop
+   too, matching the centered newsletter and payment rows above it,
+   instead of Dawn's default right-alignment when localization selectors
+   are enabled. */
 
 @keyframes appear-down {
   0% {
