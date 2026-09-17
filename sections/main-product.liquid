@@ -63,6 +63,17 @@
       #MainProduct-{{ section.id }} .product--right .product__info-wrapper {
         padding: 0 4rem 0 0;
       }
+
+      /* NOON MATCHA: Dawn caps .product__info-container at 60rem
+         (600px) so buttons/price don't stretch too wide on very large
+         screens. Since we've forced this column to a real 50% split
+         instead of Dawn's default narrower layouts, that legacy cap
+         just leaves a lot of dead white space to the right of the
+         description text and makes it wrap more (taller) than it
+         needs to. Let the column's own 50% width be the only limit. */
+      #MainProduct-{{ section.id }} .product__info-container {
+        max-width: none;
+      }
     }
   {%- endstyle -%}
 
