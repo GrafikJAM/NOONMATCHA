@@ -10,3 +10,5 @@ Thumbs.db
 .shopify
 node_modules
 *.zip
+# Not deployed by Shopify; PAT lacks workflow scope so committing it blocks pushes
+.github/
