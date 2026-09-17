@@ -45,6 +45,14 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* NOON MATCHA: let this featured collection (e.g. homepage
+     "Popularakie produkti") run wider than the site's normal 1200px
+     page-width, up to 2000px, without switching it into Dawn's
+     edge-to-edge slider mode. */
+  #shopify-section-{{ section.id }} .page-width {
+    max-width: 2000px;
+  }
 {%- endstyle -%}
 
 {%- liquid

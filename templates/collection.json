@@ -41,7 +41,7 @@
       }
     },
     "full-description": {
-      "type": "collection-desc-full",
+      "type": "collection-full-description",
       "settings": {
         "heading": "",
         "heading_size": "h2",
