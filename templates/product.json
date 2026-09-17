@@ -97,7 +97,7 @@
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
-        "heading_size": "h2",
+        "heading_size": "h0",
         "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
@@ -107,28 +107,20 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 76,
+        "padding_bottom": 76
       }
     },
-    "1789627409018a3ff1": {
+    "178962747943415b0f": {
       "type": "apps",
       "blocks": {
-        "cwilltrustoo_reviews_star_rating_widget_9YQ3m7": {
-          "type": "shopify://apps/cwilltrustoo-reviews/blocks/star-rating-widget/c8f15077-6475-4e86-ad06-b66038d5ba2c",
-          "settings": {
-            "star_size": 20,
-            "font_size": 16,
-            "text_color": "#585858",
-            "block_aligment": "center",
-            "rating_decimal_places": "1",
-            "margin_top": 10,
-            "margin_bottom": 0
-          }
+        "cwilltrustoo_reviews_card_carousel_mrrhjy": {
+          "type": "shopify://apps/cwilltrustoo-reviews/blocks/card-carousel/c8f15077-6475-4e86-ad06-b66038d5ba2c",
+          "settings": {}
         }
       },
       "block_order": [
-        "cwilltrustoo_reviews_star_rating_widget_9YQ3m7"
+        "cwilltrustoo_reviews_card_carousel_mrrhjy"
       ],
       "settings": {
         "include_margins": true
@@ -139,6 +131,6 @@
     "main",
     "disclosures",
     "related-products",
-    "1789627409018a3ff1"
+    "178962747943415b0f"
   ]
 }
