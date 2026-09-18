@@ -100,7 +100,7 @@
           "settings": {
             "title": "Atgriezies, uzpildi, atkārto",
             "heading_size": "h5",
-            "text": "Nākamajā reizē izvēlies refill opciju, lai atkārtoti savu uzpildītu bundžiņu.",
+            "text": "Nākamajā reizē izvēlies refill opciju, lai atkārtoti uzpildītu savu bundžiņu.",
             "text_size": "noon-text-s"
           }
         },
@@ -162,7 +162,7 @@
           "settings": {
             "icon": "checkmark",
             "title": "Tīrība un kvalitāte",
-            "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas — svaiga, tīra un pilnībā izsekojama tās izcelsmē.</p>",
+            "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas - svaigi malta, tīra un pilnībā izsekojama tās izcelsmē.</p>",
             "link_label": "",
             "link": ""
           }
@@ -172,7 +172,7 @@
           "settings": {
             "icon": "square",
             "title": "Estētika kā pieredze",
-            "text": "<p>Katra detaļa — no tējas līdz bundžiņai — veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
+            "text": "<p>Katra detaļa - no tējas līdz bundžiņai - veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
             "link_label": "",
             "link": ""
           }
@@ -286,7 +286,7 @@
         "caption": "Kafejnīcām un studijām",
         "heading": "Piedāvā NOON savā letē",
         "heading_size": "h1",
-        "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
+        "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācības un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
         "text_size": "noon-text-m",
         "button_label": "Pieteikties vairumtirdzniecībai",
         "button_link": "shopify://pages/noon-matcha-horeca-pricing",
