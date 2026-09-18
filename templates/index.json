@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -74,24 +83,6 @@
         "padding_bottom": 56
       }
     },
-    "matcha_quality_compare": {
-      "type": "matcha-comparison-slider",
-      "settings": {
-        "caption": "Krāsa = kvalitātes zīmogs",
-        "heading": "NOON kvalitāte",
-        "heading_size": "h1",
-        "image_good": "",
-        "label_good": "NOON MATCHA",
-        "image_bad": "",
-        "label_bad": "Citi zīmoli",
-        "initial_position": 50,
-        "button_label": "Produkti",
-        "button_link": "",
-        "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 72
-      }
-    },
     "refill": {
       "type": "sustainability-refill",
       "blocks": {
@@ -147,23 +138,20 @@
         "padding_bottom": 72
       }
     },
-    "founder": {
-      "type": "founder-message",
+    "matcha_quality_compare": {
+      "type": "matcha-comparison-slider",
       "settings": {
-        "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
-        "quote_size": "m",
-        "name": "Viktorija Miķelsone",
-        "role": "NOON MATCHA dibinātājs/-a",
-        "attribution_text_size": "noon-text-s",
-        "button_label": "PAR MUMS",
+        "caption": "Krāsa = kvalitātes zīmogs",
+        "heading": "NOON kvalitāte",
+        "heading_size": "h1",
+        "label_good": "NOON MATCHA",
+        "label_bad": "Citi zīmoli",
+        "initial_position": 50,
+        "button_label": "Produkti",
         "button_link": "",
-        "button_style_secondary": false,
         "color_scheme": "scheme-1",
-        "full_width": true,
-        "use_default_background": true,
-        "background_overlay_opacity": 45,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "commitment": {
@@ -360,6 +348,25 @@
         "padding_bottom": 72
       }
     },
+    "founder": {
+      "type": "founder-message",
+      "settings": {
+        "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+        "quote_size": "m",
+        "name": "Viktorija Miķelsone",
+        "role": "NOON MATCHA dibinātājs/-a",
+        "attribution_text_size": "noon-text-s",
+        "button_label": "PAR MUMS",
+        "button_link": "",
+        "button_style_secondary": false,
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "use_default_background": true,
+        "background_overlay_opacity": 45,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "locations": {
       "type": "location-finder",
       "blocks": {
@@ -479,12 +486,12 @@
     "hero",
     "bestsellers",
     "refill",
-    "founder",
     "matcha_quality_compare",
     "commitment",
     "collections",
     "wholesale",
     "reviews",
+    "founder",
     "locations",
     "instagram"
   ]
