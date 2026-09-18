@@ -455,11 +455,16 @@
         "padding_top": 52,
         "padding_bottom": 52
       }
+    },
+    "matcha_quality_compare": {
+      "type": "matcha-comparison-slider",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "bestsellers",
+    "matcha_quality_compare",
     "refill",
     "founder",
     "commitment",
