@@ -247,6 +247,36 @@
                     <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                       {{ product.description }}
                     </div>
+                    <script>
+                      /* NOON MATCHA: some product descriptions have raw HTML
+                         pasted in (from Google Docs) for the "flavour
+                         profile" sliders, whose .flavor-profile wrapper is
+                         meant to keep just the slider bars narrow (max-width:
+                         600px, centered). More than once, the paragraph text
+                         and/or the spec table have ended up accidentally
+                         nested INSIDE that same wrapper by mistake, making
+                         them render narrow/centered instead of full width.
+                         Self-heal this at render time: pull any .flavor-label
+                         that actually contains a paragraph or a table (real
+                         description content, not a short slider caption like
+                         "Umami") out of the .flavor-profile box entirely,
+                         placing it right before the sliders. This is a
+                         safety net, not a substitute for fixing the pasted
+                         HTML in the product's Description field in Admin. */
+                      (function () {
+                        var desc = document.currentScript.previousElementSibling;
+                        if (!desc || !desc.classList.contains('product__description')) return;
+                        desc.querySelectorAll('.flavor-label').forEach(function (label) {
+                          if (label.querySelector('p, table')) {
+                            var profile = label.closest('.flavor-profile');
+                            if (profile && profile.parentNode) {
+                              profile.parentNode.insertBefore(label, profile);
+                              label.removeAttribute('class');
+                            }
+                          }
+                        });
+                      })();
+                    </script>
                   {%- endif -%}
                 {%- when 'sku' -%}
                   <p
