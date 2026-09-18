@@ -36,7 +36,6 @@
     overflow: hidden;
     border-radius: var(--noon-compare-radius, 12px);
     background: rgba(var(--color-foreground), 0.04);
-    touch-action: pan-y;
     user-select: none;
   }
 
@@ -60,14 +59,6 @@
     height: 100%;
     object-fit: cover;
     pointer-events: none;
-  }
-
-  .noon-compare__image--placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(var(--color-foreground), 0.06);
-    color: rgba(var(--color-foreground), 0.4);
   }
 
   .noon-compare__image--good {
@@ -141,38 +132,25 @@
     height: 1.8rem;
   }
 
-  .noon-compare__range {
+  .noon-compare__hitarea {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
     z-index: 3;
-    opacity: 0;
     cursor: ew-resize;
-    -webkit-appearance: none;
-    appearance: none;
     background: transparent;
+    touch-action: none;
   }
 
-  .noon-compare__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 100%;
-  }
-
-  .noon-compare__range::-moz-range-thumb {
-    width: 4px;
-    height: 100%;
-    border: none;
-    background: transparent;
-  }
-
-  .noon-compare__range::-moz-range-track {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
+  .noon-compare__range {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .noon-compare__footer {
@@ -204,19 +182,19 @@
     {%- endif -%}
 
     <div class="noon-compare" id="Compare-{{ section.id }}">
-      <div class="noon-compare__image noon-compare__image--bad{% if section.settings.image_bad == blank %} noon-compare__image--placeholder{% endif %}">
+      <div class="noon-compare__image noon-compare__image--bad">
         {%- if section.settings.image_bad != blank -%}
-          {{ section.settings.image_bad | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1600' }}
+          {{ section.settings.image_bad | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1600', alt: section.settings.label_bad | escape }}
         {%- else -%}
-          <span>{{ section.settings.label_bad | default: 'Citi zīmoli' | escape }}</span>
+          <img src="{{ 'noon-compare-bad.webp' | asset_url }}" alt="{{ section.settings.label_bad | escape }}" loading="lazy">
         {%- endif -%}
       </div>
 
-      <div class="noon-compare__image noon-compare__image--good{% if section.settings.image_good == blank %} noon-compare__image--placeholder{% endif %}">
+      <div class="noon-compare__image noon-compare__image--good">
         {%- if section.settings.image_good != blank -%}
-          {{ section.settings.image_good | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1600' }}
+          {{ section.settings.image_good | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 1600', alt: section.settings.label_good | escape }}
         {%- else -%}
-          <span>{{ section.settings.label_good | default: 'NOON MATCHA' | escape }}</span>
+          <img src="{{ 'noon-compare-good.webp' | asset_url }}" alt="{{ section.settings.label_good | escape }}" loading="lazy">
         {%- endif -%}
       </div>
 
@@ -235,6 +213,8 @@
         </div>
       </div>
 
+      <div class="noon-compare__hitarea" aria-hidden="true"></div>
+
       <input
         type="range"
         class="noon-compare__range"
@@ -242,7 +222,6 @@
         max="100"
         value="{{ section.settings.initial_position }}"
         aria-label="{{ 'sections.image_comparison.slider_label' | t | default: 'Salīdziniet matcha kvalitāti' }}"
-        oninput="this.closest('.noon-compare').style.setProperty('--noon-compare-pos', this.value + '%')"
       >
     </div>
 
@@ -255,6 +234,56 @@
     {%- endif -%}
   </div>
 </div>
+
+<script>
+  (function () {
+    var root = document.getElementById('Compare-{{ section.id }}');
+    if (!root) return;
+    var range = root.querySelector('.noon-compare__range');
+    var hitArea = root.querySelector('.noon-compare__hitarea');
+
+    function setPos(pct) {
+      pct = Math.max(0, Math.min(100, pct));
+      root.style.setProperty('--noon-compare-pos', pct + '%');
+      if (range) range.value = Math.round(pct);
+    }
+
+    function posFromClientX(clientX) {
+      var rect = root.getBoundingClientRect();
+      if (rect.width === 0) return 50;
+      return ((clientX - rect.left) / rect.width) * 100;
+    }
+
+    if (hitArea) {
+      var dragging = false;
+
+      hitArea.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        try { hitArea.setPointerCapture(e.pointerId); } catch (err) {}
+        setPos(posFromClientX(e.clientX));
+      });
+
+      hitArea.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        setPos(posFromClientX(e.clientX));
+      });
+
+      function stopDragging() {
+        dragging = false;
+      }
+
+      hitArea.addEventListener('pointerup', stopDragging);
+      hitArea.addEventListener('pointercancel', stopDragging);
+      hitArea.addEventListener('lostpointercapture', stopDragging);
+    }
+
+    if (range) {
+      range.addEventListener('input', function () {
+        root.style.setProperty('--noon-compare-pos', range.value + '%');
+      });
+    }
+  })();
+</script>
 
 {% schema %}
 {
@@ -293,7 +322,8 @@
     {
       "type": "image_picker",
       "id": "image_good",
-      "label": "NOON MATCHA image"
+      "label": "NOON MATCHA image",
+      "info": "Leave blank to use the default NOON matcha photo."
     },
     {
       "type": "text",
@@ -308,7 +338,8 @@
     {
       "type": "image_picker",
       "id": "image_bad",
-      "label": "Other brands image"
+      "label": "Other brands image",
+      "info": "Leave blank to use the default comparison photo."
     },
     {
       "type": "text",
