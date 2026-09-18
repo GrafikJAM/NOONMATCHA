@@ -1,3 +1,12 @@
+{%- style -%}
+  /* NOON MATCHA: let this app-block section (e.g. the Trustoo reviews
+     carousel) run wider than the site's normal 1200px page-width, up
+     to 2000px, matching the product page and collection grid. */
+  #shopify-section-{{ section.id }} .page-width {
+    max-width: 2000px;
+  }
+{%- endstyle -%}
+
 <div class="{% if section.settings.include_margins %}page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
   {%- for block in section.blocks -%}
     {% render block %}
