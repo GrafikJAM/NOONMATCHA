@@ -338,6 +338,19 @@ a.product__text {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
+/* NOON MATCHA: some product descriptions paste in "flavour profile"
+   sliders (Līdzsvars/Umami/Efekts) with their own <style> tag that
+   centers the .flavor-profile box (max-width: 600px; margin: 2rem
+   auto). Override the centering so it sits flush left like the rest
+   of the description content, instead of floating in the middle of
+   the column. Higher specificity than the pasted rule wins regardless
+   of source order. */
+.product__description .flavor-profile {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
 .product--no-media .product__title,
 .product--no-media .product__text,
 .product--no-media .product__tax,
