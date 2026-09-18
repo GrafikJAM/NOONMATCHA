@@ -141,6 +141,13 @@
     touch-action: none;
   }
 
+  /* Dawn's base.css hides any empty <div> (div:empty { display: none }),
+     which silently killed this element since it has no children. Force
+     it visible/interactive with a selector specific enough to win. */
+  #Compare-{{ section.id }} .noon-compare__hitarea {
+    display: block;
+  }
+
   .noon-compare__range {
     position: absolute;
     width: 1px;
