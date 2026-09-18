@@ -351,10 +351,10 @@
     "founder": {
       "type": "founder-message",
       "settings": {
-        "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+        "quote": "NOON tik radīts ap pauzi, nevis steigu. Lai padarītu dienas vidu par brīdi sev - ar matcha rituālu, kas palīdz apstāties, atjaunot enerģiju un atgūt fokusu.",
         "quote_size": "m",
         "name": "Viktorija Miķelsone",
-        "role": "NOON MATCHA dibinātājs/-a",
+        "role": "NOON MATCHA dibinātāja",
         "attribution_text_size": "noon-text-s",
         "button_label": "PAR MUMS",
         "button_link": "",
@@ -377,7 +377,7 @@
             "name": "Miera Maize",
             "heading_size": "h4",
             "address": "Miera iela 89, Rīga",
-            "hours": "P.–Sv. 8:00–20:00",
+            "hours": "P.–Sv. 8:00–21:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -389,7 +389,7 @@
             "name": "BACKDOOR MARKET",
             "heading_size": "h4",
             "address": "Matīsa iela 8, Rīga",
-            "hours": "P.–Sv. 8:00–20:00",
+            "hours": "P.–Sv. 12:00–19:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -400,8 +400,32 @@
             "tag": "Picērija",
             "name": "Divi Tomāti",
             "heading_size": "h4",
-            "address": "Krišjāņa Barona 44/46, Rīga",
+            "address": "Krišjāņa Barona 24-26, Rīga",
+            "hours": "P.–Sv. 12:00–22:00",
+            "text_size": "noon-text-s",
+            "map_link": ""
+          }
+        },
+        "location_yPwgnY": {
+          "type": "location",
+          "settings": {
+            "tag": "KAFEJNĪCA",
+            "name": "Coffee Society",
+            "heading_size": "h4",
+            "address": "Tērbatas iela 72, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
+            "text_size": "noon-text-s",
+            "map_link": ""
+          }
+        },
+        "location_NC7BXe": {
+          "type": "location",
+          "settings": {
+            "tag": "Labsajūtas centrs",
+            "name": "Buddas Muiža",
+            "heading_size": "h4",
+            "address": "Pampāļu iela 1, Rīga",
+            "hours": "P.–Sv. 9:00–20:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -410,13 +434,15 @@
       "block_order": [
         "loc-1",
         "loc-2",
-        "loc-3"
+        "loc-3",
+        "location_yPwgnY",
+        "location_NC7BXe"
       ],
       "settings": {
         "caption": "Rīga, Latvija",
         "heading": "Atrodi NOON sev tuvāk",
         "heading_size": "h1",
-        "text": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
+        "text": "<p>Nogaršo NOON MATCHA šajās partneru vietās Rīgā.</p>",
         "text_size": "noon-text-m",
         "color_scheme": "scheme-1",
         "full_width": true,
