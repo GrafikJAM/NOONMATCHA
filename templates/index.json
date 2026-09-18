@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -77,15 +86,15 @@
     "matcha_quality_compare": {
       "type": "matcha-comparison-slider",
       "settings": {
-        "caption": "",
-        "heading": "Pamani atšķirību",
+        "caption": "Krāsa = kvalitātes zīmogs",
+        "heading": "NOON kvalitāte",
         "heading_size": "h1",
-        "image_good": "",
+        "image_good": "shopify://shop_images/022_matcha_color_test.jpg",
         "label_good": "NOON MATCHA",
-        "image_bad": "",
+        "image_bad": "shopify://shop_images/104.jpg",
         "label_bad": "Citi zīmoli",
         "initial_position": 50,
-        "button_label": "Iepirkties",
+        "button_label": "Produkti",
         "button_link": "",
         "color_scheme": "scheme-1",
         "padding_top": 72,
@@ -478,9 +487,9 @@
   "order": [
     "hero",
     "bestsellers",
-    "matcha_quality_compare",
     "refill",
     "founder",
+    "matcha_quality_compare",
     "commitment",
     "collections",
     "wholesale",
