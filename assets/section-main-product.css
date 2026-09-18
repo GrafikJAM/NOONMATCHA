@@ -320,6 +320,12 @@ a.product__text {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
   vertical-align: top;
+  /* Some product descriptions have raw pasted HTML with its own
+     <style>table, td, th { text-align: center; }</style> tag (from a
+     Google Docs paste). Force left alignment here so the spec table
+     reads left-to-right like the rest of the page, regardless of
+     what a pasted description brings with it. */
+  text-align: left;
 }
 
 .product__description table td > *,
