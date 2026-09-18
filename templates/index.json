@@ -22,7 +22,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Ikdienas rituāls mierīgākai enerģijai un skaidrākam fokusam.",
             "text_style": "caption-with-letter-spacing"
           }
         },
@@ -89,9 +89,9 @@
         "step-1": {
           "type": "step",
           "settings": {
-            "title": "Pasūti savu ceremoniālo matcha",
+            "title": "Pasūtu savu ceremoniālo matcha",
             "heading_size": "h5",
-            "text": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
+            "text": "Saņem to NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
             "text_size": "noon-text-s"
           }
         },
@@ -100,7 +100,7 @@
           "settings": {
             "title": "Atgriezies, uzpildi, atkārto",
             "heading_size": "h5",
-            "text": "Pasūti tikai matcha — tā pati bundžiņa, mazāk iepakojuma, labāka cena.",
+            "text": "Nākamajā reizē izvēlies refill opciju, lai atkārtoti savu uzpildītu bundžiņu.",
             "text_size": "noon-text-s"
           }
         },
@@ -109,7 +109,7 @@
           "settings": {
             "title": "Vairāk matcha, mazāk atkritumu",
             "heading_size": "h5",
-            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst maigāks pret planētu.",
+            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst saudzīgāks pret planētu.",
             "text_size": "noon-text-s"
           }
         }
@@ -126,7 +126,7 @@
         "caption": "Ilgtspēja",
         "heading": "Vairāk matcha, mazāk atkritumu",
         "heading_size": "h1",
-        "text": "<p>Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "text": "<p>Pasūti vienreiz, papildini izdevīgāk. Kad iepakojums ir tukšs, nakamreiz izvēlies refill opciju par zemāku cenu un turpini savu ikdienas rituālu bez lieka iepakojuma.</p>",
         "text_size": "noon-text-m",
         "button_label": "Iepirkties",
         "button_link": "shopify://collections/all",
