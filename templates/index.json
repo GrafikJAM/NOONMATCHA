@@ -305,29 +305,29 @@
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
+            "quote": "Lieliska pieredze no sākuma līdz beigām! Piegāde notika ļoti ātri, iepakojums bija pārdomāts un personalizēts, kas radīja īpašu sajūtu. Tējas kvalitāte pārsniedza manas cerības – garša ir tīra un izteikta. Noteikti iesaku visiem matcha cienītājiem!",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
-            "location": "Rīga"
+            "author": "Ilze",
+            "location": ""
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Miers un stabils fokuss bez kritiena. Manas pēcpusdienas tagad izskatās pavisam citādas.",
+            "quote": "Labākais, ko es esmu jebkad mēģinājusi! Pateicoties šai matchai, es esmu iemīlējusi šo dzērienu, un iesaku to ikvienam pagaršot! Jūs būsiet apmierināti!",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
-            "location": "Rīga"
+            "author": "Evelīna",
+            "location": ""
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Uzpildes bundžiņa ir tik maza lieta, kas maina tik daudz. Mīlu šo rituālu.",
+            "quote": "The best quality matcha in town. Traceable and reliable supplies.",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
+            "author": "Marta S.",
             "location": "Jūrmala"
           }
         }
