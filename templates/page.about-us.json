@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "about-hero": {
@@ -5,10 +14,10 @@
       "settings": {
         "heading": "NOON MATCHA dzima dienas vidū",
         "heading_size": "h1",
-        "intro_text": "<h5>Tieši tajā brīdī, kad saule ir visaugstāk debesīs, bet mūsu enerģija sāk dzist. Pēc pusdienām — kad prāts kļūst miglains, un ķermenis meklē līdzsvaru — mēs vēlējāmies atrast dabisku veidu, kā atjaunoties. Nevis ar vēl vienu kafijas krūzi vai cukuru. Bet ar kaut ko dziļāku. Klusāku. Spēcīgāku.</h5>",
-        "lead_text_size": "noon-text-xl",
+        "intro_text": "<p>Tieši tajā brīdī, kad saule ir visaugstāk debesīs, bet mūsu enerģija sāk dzist. Pēc pusdienām — kad prāts kļūst miglains, un ķermenis meklē līdzsvaru — mēs vēlējāmies atrast dabisku veidu, kā atjaunoties. Nevis ar vēl vienu kafijas krūzi vai cukuru. Bet ar kaut ko dziļāku. Klusāku. Spēcīgāku.</p>",
+        "lead_text_size": "noon-text-s",
         "body_text": "<p>Mēs ticam, ka enerģija un estētika var būt apvienoti. Tāpēc rūpīgi izvēlamies tikai augstākās kvalitātes matcha no Japānas, un piedāvājam arī izsmalcinātus piederumus, kas padara pagatavošanas rituālu vienkāršu, skaistu un personīgu.</p>",
-        "body_text_size": "noon-text-m",
+        "body_text_size": "noon-text-s",
         "centered_layout": true,
         "min_height": 0,
         "image": "shopify://shop_images/coffee-tea-bold-6.jpg",
@@ -23,7 +32,7 @@
       "settings": {
         "text": "NOON MATCHA nav tikai tēja. Tā ir izvēle — par mieru, fokusu un sevi ik dienas.",
         "text_size": "m",
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-2",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -121,12 +130,24 @@
         "padding_top": 48,
         "padding_bottom": 80
       }
+    },
+    "contact_form_MeH9DD": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Sazinies ar NOON!",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "about-hero",
     "about-statement",
     "about-mission-vision",
-    "about-values"
+    "about-values",
+    "contact_form_MeH9DD"
   ]
 }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -13,7 +22,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+            "text": "Ceremoniālas kvalitātes matcha tēja no Japānas. Ikdienas rituāls mierīgākai enerģijai un skaidrākam fokusam.",
             "text_style": "caption-with-letter-spacing"
           }
         },
@@ -50,7 +59,7 @@
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Populārākie produkti",
+        "title": "Pirktākie produkti",
         "heading_size": "h2",
         "heading_alignment": "center",
         "description": "",
@@ -80,9 +89,9 @@
         "step-1": {
           "type": "step",
           "settings": {
-            "title": "Pasūti savu ceremoniālo matcha",
+            "title": "Pasūtu savu ceremoniālo matcha",
             "heading_size": "h5",
-            "text": "Tas ienāk mājās NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
+            "text": "Saņem to NOON bundžiņā, kas gatava savai pirmajai uzpildei.",
             "text_size": "noon-text-s"
           }
         },
@@ -91,7 +100,7 @@
           "settings": {
             "title": "Atgriezies, uzpildi, atkārto",
             "heading_size": "h5",
-            "text": "Pasūti tikai matcha — tā pati bundžiņa, mazāk iepakojuma, labāka cena.",
+            "text": "Nākamajā reizē izvēlies refill opciju, lai atkārtoti uzpildītu savu bundžiņu.",
             "text_size": "noon-text-s"
           }
         },
@@ -100,7 +109,7 @@
           "settings": {
             "title": "Vairāk matcha, mazāk atkritumu",
             "heading_size": "h5",
-            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst maigāks pret planētu.",
+            "text": "Ikdienas rituāls, kas ar katru uzpildi kļūst saudzīgāks pret planētu.",
             "text_size": "noon-text-s"
           }
         }
@@ -117,12 +126,12 @@
         "caption": "Ilgtspēja",
         "heading": "Vairāk matcha, mazāk atkritumu",
         "heading_size": "h1",
-        "text": "<p>Pasūti vienreiz, tad papildini savu ceremoniālo matcha par zemāku cenu — tas pats rituāls, ar mazāk iepakojuma aiz tā.</p>",
+        "text": "<p>Pasūti vienreiz, papildini izdevīgāk. Kad iepakojums ir tukšs, nākamreiz izvēlies refill opciju par zemāku cenu un turpini savu ikdienas rituālu bez lieka iepakojuma.</p>",
         "text_size": "noon-text-m",
-        "button_label": "Iepirkties",
+        "button_label": "Uzpildīt atkārtoti",
         "button_link": "shopify://collections/all",
         "button_style_secondary": false,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "background_overlay_opacity": 0,
         "padding_top": 72,
@@ -136,9 +145,9 @@
         "heading": "NOON kvalitāte",
         "heading_size": "h1",
         "label_good": "NOON MATCHA",
-        "label_bad": "Citi zīmoli",
+        "label_bad": "VIDĒJA MATCHA",
         "initial_position": 50,
-        "button_label": "Produkti",
+        "button_label": "Izmēģini",
         "button_link": "",
         "color_scheme": "scheme-1",
         "padding_top": 72,
@@ -152,8 +161,8 @@
           "type": "column",
           "settings": {
             "icon": "checkmark",
-            "title": "Tīrība un kvalitāte",
-            "text": "<p>Tikai augstākās kvalitātes ceremoniālā matcha no Japānas — svaiga, tīra un pilnībā izsekojama tās izcelsmē.</p>",
+            "title": "Izsekojama kvalitāte",
+            "text": "<p>Pirmā raža, ēnošanas metode, noteikts kultivārs, tradicionālā akmens malšana un tīrs sastāvs.</p>",
             "link_label": "",
             "link": ""
           }
@@ -163,7 +172,7 @@
           "settings": {
             "icon": "square",
             "title": "Estētika kā pieredze",
-            "text": "<p>Katra detaļa — no tējas līdz bundžiņai — veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
+            "text": "<p>Katra detaļa - no tējas līdz bundžiņai - veidota, lai radītu vizuāli un emocionāli nozīmīgu mirkli.</p>",
             "link_label": "",
             "link": ""
           }
@@ -277,7 +286,7 @@
         "caption": "Kafejnīcām un studijām",
         "heading": "Piedāvā NOON savā letē",
         "heading_size": "h1",
-        "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācību un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
+        "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācības un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
         "text_size": "noon-text-m",
         "button_label": "Pieteikties vairumtirdzniecībai",
         "button_link": "shopify://pages/noon-matcha-horeca-pricing",
@@ -296,29 +305,29 @@
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Spilgta krāsa, samtaina tekstūra, sabalansēta garša — īsts produkts.",
+            "quote": "Lieliska pieredze no sākuma līdz beigām! Piegāde notika ļoti ātri, iepakojums bija pārdomāts un personalizēts, kas radīja īpašu sajūtu. Tējas kvalitāte pārsniedza manas cerības – garša ir tīra un izteikta. Noteikti iesaku visiem matcha cienītājiem!",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
-            "location": "Rīga"
+            "author": "Ilze",
+            "location": ""
           }
         },
         "t2": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Miers un stabils fokuss bez kritiena. Manas pēcpusdienas tagad izskatās pavisam citādas.",
+            "quote": "Labākais, ko es esmu jebkad mēģinājusi! Pateicoties šai matchai, es esmu iemīlējusi šo dzērienu, un iesaku to ikvienam pagaršot! Jūs būsiet apmierināti!",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
-            "location": "Rīga"
+            "author": "Evelīna",
+            "location": ""
           }
         },
         "t3": {
           "type": "testimonial",
           "settings": {
             "rating": 5,
-            "quote": "Uzpildes bundžiņa ir tik maza lieta, kas maina tik daudz. Mīlu šo rituālu.",
+            "quote": "The best quality matcha in town. Traceable and reliable supplies.",
             "text_size": "noon-text-m",
-            "author": "Klienta vārds",
+            "author": "Marta S.",
             "location": "Jūrmala"
           }
         }
@@ -342,10 +351,10 @@
     "founder": {
       "type": "founder-message",
       "settings": {
-        "quote": "NOON radījām ap pauzi, nevis steigu — ceremoniālas kvalitātes matcha mirklim, kad tavai enerģijai vajag mieru, nevis lēcienu.",
+        "quote": "NOON tik radīts ap pauzi, nevis steigu. Lai padarītu dienas vidu par brīdi sev - ar matcha rituālu, kas palīdz apstāties, atjaunot enerģiju un atgūt fokusu.",
         "quote_size": "m",
         "name": "Viktorija Miķelsone",
-        "role": "NOON MATCHA dibinātājs/-a",
+        "role": "NOON MATCHA dibinātāja",
         "attribution_text_size": "noon-text-s",
         "button_label": "PAR MUMS",
         "button_link": "",
@@ -368,7 +377,7 @@
             "name": "Miera Maize",
             "heading_size": "h4",
             "address": "Miera iela 89, Rīga",
-            "hours": "P.–Sv. 8:00–20:00",
+            "hours": "P.–Sv. 8:00–21:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -380,7 +389,7 @@
             "name": "BACKDOOR MARKET",
             "heading_size": "h4",
             "address": "Matīsa iela 8, Rīga",
-            "hours": "P.–Sv. 8:00–20:00",
+            "hours": "P.–Sv. 12:00–19:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -391,8 +400,32 @@
             "tag": "Picērija",
             "name": "Divi Tomāti",
             "heading_size": "h4",
-            "address": "Krišjāņa Barona 44/46, Rīga",
+            "address": "Krišjāņa Barona 24-26, Rīga",
+            "hours": "P.–Sv. 12:00–22:00",
+            "text_size": "noon-text-s",
+            "map_link": ""
+          }
+        },
+        "location_yPwgnY": {
+          "type": "location",
+          "settings": {
+            "tag": "KAFEJNĪCA",
+            "name": "Coffee Society",
+            "heading_size": "h4",
+            "address": "Tērbatas iela 72, Rīga",
             "hours": "P.–Sv. 8:00–20:00",
+            "text_size": "noon-text-s",
+            "map_link": ""
+          }
+        },
+        "location_NC7BXe": {
+          "type": "location",
+          "settings": {
+            "tag": "Labsajūtas centrs",
+            "name": "Buddas Muiža",
+            "heading_size": "h4",
+            "address": "Pampāļu iela 1, Rīga",
+            "hours": "P.–Sv. 9:00–20:00",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -401,13 +434,15 @@
       "block_order": [
         "loc-1",
         "loc-2",
-        "loc-3"
+        "loc-3",
+        "location_yPwgnY",
+        "location_NC7BXe"
       ],
       "settings": {
         "caption": "Rīga, Latvija",
         "heading": "Atrodi NOON sev tuvāk",
         "heading_size": "h1",
-        "text": "<p>Nogaršo vai iegādājies NOON MATCHA šajās partneru vietās Rīgā.</p>",
+        "text": "<p>Nogaršo NOON MATCHA šajās partneru vietās Rīgā.</p>",
         "text_size": "noon-text-m",
         "color_scheme": "scheme-1",
         "full_width": true,
