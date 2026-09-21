@@ -447,6 +447,9 @@
         "color_scheme": "scheme-1",
         "full_width": true,
         "background_overlay_opacity": 0,
+        "show_distributor_cta": true,
+        "distributor_cta_text": "Vēlies kļūt par izplatītāju? Sazinies ar mums!",
+        "distributor_cta_link": "shopify://pages/sazinies-ar-mums",
         "padding_top": 72,
         "padding_bottom": 72
       }
