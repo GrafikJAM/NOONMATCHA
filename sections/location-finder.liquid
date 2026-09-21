@@ -72,6 +72,29 @@
     font-size: 1.3rem;
   }
 
+  .noon-location--cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    background: rgba(var(--color-noon-green, 125, 222, 18), 0.08);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 3.2rem 2.8rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .noon-location--cta:hover {
+    background: rgba(var(--color-noon-green, 125, 222, 18), 0.16);
+  }
+
+  .noon-location__cta-text {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
   .noon-section {
     position: relative;
   }
@@ -151,6 +174,14 @@
           {%- endif -%}
         </div>
       {%- endfor -%}
+      {%- if section.settings.show_distributor_cta -%}
+        <a
+          href="{{ section.settings.distributor_cta_link | default: '#' }}"
+          class="noon-location noon-location--cta"
+        >
+          <span class="noon-location__cta-text">{{ section.settings.distributor_cta_text | escape }}</span>
+        </a>
+      {%- endif -%}
     </div>
   {%- endif -%}
 </div>
@@ -236,6 +267,29 @@
       "unit": "%",
       "label": "Background image overlay opacity",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Distributor CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_distributor_cta",
+      "label": "Show \"become a distributor\" cell",
+      "info": "Adds a button-style cell after the locations, always last in the grid.",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "distributor_cta_text",
+      "label": "Button text",
+      "default": "Vēlies kļūt par izplatītāju? Sazinies ar mums!"
+    },
+    {
+      "type": "url",
+      "id": "distributor_cta_link",
+      "label": "Button link",
+      "info": "Usually your Contact page."
     },
     {
       "type": "header",
