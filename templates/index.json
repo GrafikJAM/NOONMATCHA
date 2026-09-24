@@ -289,7 +289,7 @@
         "text": "<p>Sadarbojamies ar nelielu skaitu kafejnīcu, bāru un labsajūtas studiju Rīgā un citur Latvijā, kuras dala mūsu standartu ceremoniālas kvalitātes matcha tējai. Sazinies ar mums, un mēs piedāvāsim vairumtirdzniecības cenas, apmācības un visu nepieciešamo, lai to pasniegtu pareizi.</p>",
         "text_size": "noon-text-m",
         "button_label": "Pieteikties vairumtirdzniecībai",
-        "button_link": "shopify://pages/noon-matcha-horeca-pricing",
+        "button_link": "shopify://pages/sazinies-ar-mums",
         "button_style_secondary": false,
         "color_scheme": "scheme-4",
         "full_width": true,
@@ -351,7 +351,7 @@
     "founder": {
       "type": "founder-message",
       "settings": {
-        "quote": "NOON tik radīts ap pauzi, nevis steigu. Lai padarītu dienas vidu par brīdi sev - ar matcha rituālu, kas palīdz apstāties, atjaunot enerģiju un atgūt fokusu.",
+        "quote": "NOON tik radīts ap pauzi, nevis steigu. Lai padarītu dienas vidu par brīdi sev - ar matcha rituālu, kas palīdz apstāties, atjaunot&nbsp;enerģiju un atgūt fokusu.",
         "quote_size": "m",
         "name": "Viktorija Miķelsone",
         "role": "NOON MATCHA dibinātāja",
@@ -442,7 +442,7 @@
         "caption": "Rīga, Latvija",
         "heading": "Atrodi NOON sev tuvāk",
         "heading_size": "h1",
-        "text": "<p>Nogaršo NOON MATCHA šajās partneru vietās Rīgā.</p>",
+        "text": "<p>Nogaršo NOON MATCHA šajās partneru vietās Latvijā.</p>",
         "text_size": "noon-text-m",
         "color_scheme": "scheme-1",
         "full_width": true,
