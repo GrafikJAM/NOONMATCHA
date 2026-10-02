@@ -29,7 +29,7 @@
   assign noon_mode = section.settings.description_mode | default: 'auto'
 
   if noon_mode == 'full'
-    assign noon_display_desc = noon_full_desc
+    assign noon_display_desc = collection.description
     assign noon_show_button = false
   else
     assign noon_short_meta = collection.metafields.custom.short_description.value
