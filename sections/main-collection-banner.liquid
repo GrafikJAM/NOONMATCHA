@@ -17,42 +17,62 @@
 
 {%- liquid
   comment
-    "Short description" metafield (collection.metafields.custom.short_description)
-    is independent teaser copy, shown as-is with no trimming. When it's blank,
-    fall back to auto-trimming the full Description to short_description_word_limit
-    words, same as before this metafield existed.
+    This section can be added TWICE to the same collection template: once
+    near the top with description_mode "auto" (short teaser, from the
+    "Short description" metafield or an auto-trimmed Description, with a
+    "read more" button), and again further down -- after the product grid
+    -- with description_mode "full" (the plain, untrimmed Description,
+    title turned off). No separate "full description" section needed;
+    just duplicate this one and flip its settings.
   endcomment
   assign noon_full_desc = collection.description | strip_html | strip_newlines
-  assign noon_short_meta = collection.metafields.custom.short_description.value
-  if noon_short_meta != blank
-    assign noon_short_desc = noon_short_meta | strip_html | strip_newlines
-    assign noon_desc_truncated = false
-    if noon_full_desc != blank
-      assign noon_desc_truncated = true
-    endif
+  assign noon_mode = section.settings.description_mode | default: 'auto'
+
+  if noon_mode == 'full'
+    assign noon_display_desc = noon_full_desc
+    assign noon_show_button = false
   else
-    assign noon_word_limit = section.settings.short_description_word_limit
-    assign noon_short_desc = noon_full_desc | truncatewords: noon_word_limit
-    assign noon_word_count = noon_full_desc | split: ' ' | size
-    assign noon_desc_truncated = false
-    if noon_word_count > noon_word_limit
-      assign noon_desc_truncated = true
+    assign noon_short_meta = collection.metafields.custom.short_description.value
+    if noon_short_meta != blank
+      assign noon_short_desc = noon_short_meta | strip_html | strip_newlines
+      assign noon_desc_truncated = false
+      if noon_full_desc != blank
+        assign noon_desc_truncated = true
+      endif
+    else
+      assign noon_word_limit = section.settings.short_description_word_limit
+      assign noon_short_desc = noon_full_desc | truncatewords: noon_word_limit
+      assign noon_word_count = noon_full_desc | split: ' ' | size
+      assign noon_desc_truncated = false
+      if noon_word_count > noon_word_limit
+        assign noon_desc_truncated = true
+      endif
+    endif
+    assign noon_display_desc = noon_short_desc
+    assign noon_show_button = false
+    if noon_desc_truncated and section.settings.button_label != blank
+      assign noon_show_button = true
     endif
   endif
 -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+<div
+  {%- if noon_mode == 'full' %} id="collection-full-description"{% endif %}
+  class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient"
+>
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+      {%- if section.settings.show_title -%}
+        <h1 class="collection-hero__title">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {{- collection.title | escape -}}
+        </h1>
+      {%- endif -%}
 
-      {%- if section.settings.show_collection_description and noon_short_desc != blank -%}
-        <div class="collection-hero__description rte {{ section.settings.text_size }}">{{ noon_short_desc }}</div>
+      {%- if section.settings.show_collection_description and noon_display_desc != blank -%}
+        <div class="collection-hero__description rte {{ section.settings.text_size }}">{{ noon_display_desc }}</div>
 
-        {%- if noon_desc_truncated and section.settings.button_label != blank -%}
+        {%- if noon_show_button -%}
           <div class="collection-hero__description-button">
             <a href="#collection-full-description" class="button button--secondary">
               {{- section.settings.button_label | escape -}}
@@ -95,6 +115,27 @@
       "content": "t:sections.main-collection-banner.settings.paragraph.content"
     },
     {
+      "type": "paragraph",
+      "content": "Tip: add this section twice on the same collection template -- once near the top set to 'Automatic' (short teaser + read more button), and again after the product grid set to 'Full / regular' with the title turned off, to show the complete Description lower on the page."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "default": true,
+      "label": "Show collection title",
+      "info": "Turn off when duplicating this section lower on the page just to show the full description."
+    },
+    {
+      "type": "select",
+      "id": "description_mode",
+      "options": [
+        { "value": "auto", "label": "Automatic (short teaser + read more button)" },
+        { "value": "full", "label": "Full / regular description (no trimming, no button)" }
+      ],
+      "default": "auto",
+      "label": "Description mode"
+    },
+    {
       "type": "checkbox",
       "id": "show_collection_description",
       "default": true,
@@ -108,7 +149,7 @@
       "step": 5,
       "default": 40,
       "label": "Short description length (words)",
-      "info": "Only used when the collection has no \u0027Short description\u0027 metafield set. The collection\u2019s full Description (set in Admin) is trimmed to this many words here. The untrimmed version shows in full further down the page, in the \u0027Collection full description\u0027 section, when a \u0027Uzzini vair\u0101k\u0027 button is shown."
+      "info": "Only used in 'Automatic' mode, and only when the collection has no 'Short description' metafield set."
     },
     {
       "type": "select",
@@ -127,7 +168,7 @@
       "id": "button_label",
       "label": "Read more button label",
       "default": "Uzzini vairāk",
-      "info": "Only shown when the description above is actually trimmed. Jumps down to the 'Collection full description' section — add that section after the product grid."
+      "info": "Only used in 'Automatic' mode, and only shown when the description is actually trimmed. Jumps down to wherever a second copy of this section (set to 'Full / regular') is placed."
     },
     {
       "type": "checkbox",
