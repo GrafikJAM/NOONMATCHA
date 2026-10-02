@@ -32,7 +32,7 @@
       }
     },
     "full-description": {
-      "type": "collection-full-description",
+      "type": "noon-collection-description",
       "settings": {
         "heading": "",
         "heading_size": "h2",
