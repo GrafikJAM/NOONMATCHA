@@ -377,7 +377,7 @@
             "name": "Miera Maize",
             "heading_size": "h4",
             "address": "Miera iela 89, Rīga",
-            "hours": "P.–Sv. 8:00–21:00",
+            "hours": "",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -389,7 +389,7 @@
             "name": "BACKDOOR MARKET",
             "heading_size": "h4",
             "address": "Matīsa iela 8, Rīga",
-            "hours": "P.–Sv. 12:00–19:00",
+            "hours": "",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -401,7 +401,7 @@
             "name": "Divi Tomāti",
             "heading_size": "h4",
             "address": "Krišjāņa Barona 24-26, Rīga",
-            "hours": "P.–Sv. 12:00–22:00",
+            "hours": "",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -413,7 +413,7 @@
             "name": "Coffee Society",
             "heading_size": "h4",
             "address": "Tērbatas iela 72, Rīga",
-            "hours": "P.–Sv. 8:00–20:00",
+            "hours": "",
             "text_size": "noon-text-s",
             "map_link": ""
           }
@@ -425,7 +425,7 @@
             "name": "Buddas Muiža",
             "heading_size": "h4",
             "address": "Pampāļu iela 1, Rīga",
-            "hours": "P.–Sv. 9:00–20:00",
+            "hours": "",
             "text_size": "noon-text-s",
             "map_link": ""
           }
