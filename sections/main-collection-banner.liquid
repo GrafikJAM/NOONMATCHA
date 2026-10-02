@@ -16,13 +16,28 @@
 {%- endstyle -%}
 
 {%- liquid
+  comment
+    "Short description" metafield (collection.metafields.custom.short_description)
+    is independent teaser copy, shown as-is with no trimming. When it's blank,
+    fall back to auto-trimming the full Description to short_description_word_limit
+    words, same as before this metafield existed.
+  endcomment
   assign noon_full_desc = collection.description | strip_html | strip_newlines
-  assign noon_word_limit = section.settings.short_description_word_limit
-  assign noon_short_desc = noon_full_desc | truncatewords: noon_word_limit
-  assign noon_word_count = noon_full_desc | split: ' ' | size
-  assign noon_desc_truncated = false
-  if noon_word_count > noon_word_limit
-    assign noon_desc_truncated = true
+  assign noon_short_meta = collection.metafields.custom.short_description.value
+  if noon_short_meta != blank
+    assign noon_short_desc = noon_short_meta | strip_html | strip_newlines
+    assign noon_desc_truncated = false
+    if noon_full_desc != blank
+      assign noon_desc_truncated = true
+    endif
+  else
+    assign noon_word_limit = section.settings.short_description_word_limit
+    assign noon_short_desc = noon_full_desc | truncatewords: noon_word_limit
+    assign noon_word_count = noon_full_desc | split: ' ' | size
+    assign noon_desc_truncated = false
+    if noon_word_count > noon_word_limit
+      assign noon_desc_truncated = true
+    endif
   endif
 -%}
 
@@ -34,7 +49,7 @@
         {{- collection.title | escape -}}
       </h1>
 
-      {%- if section.settings.show_collection_description and noon_full_desc != blank -%}
+      {%- if section.settings.show_collection_description and noon_short_desc != blank -%}
         <div class="collection-hero__description rte {{ section.settings.text_size }}">{{ noon_short_desc }}</div>
 
         {%- if noon_desc_truncated and section.settings.button_label != blank -%}
@@ -93,7 +108,7 @@
       "step": 5,
       "default": 40,
       "label": "Short description length (words)",
-      "info": "The collection's full Description (set in Admin) is trimmed to this many words here. The untrimmed version shows in full further down the page, in the 'Collection full description' section, when a 'Uzzini vairāk' button is shown."
+      "info": "Only used when the collection has no \u0027Short description\u0027 metafield set. The collection\u2019s full Description (set in Admin) is trimmed to this many words here. The untrimmed version shows in full further down the page, in the \u0027Collection full description\u0027 section, when a \u0027Uzzini vair\u0101k\u0027 button is shown."
     },
     {
       "type": "select",

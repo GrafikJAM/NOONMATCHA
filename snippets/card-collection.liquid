@@ -29,6 +29,18 @@
     assign card_color_scheme = settings.collection_card_color_scheme
     assign card_style = settings.collection_card_style
   endif
+
+  comment
+    "Short description" metafield lets a collection show different teaser
+    copy on cards than its full (long) Description. Falls back to a
+    12-word trim of the full Description when the metafield is blank.
+  endcomment
+  assign noon_card_short_desc = card_collection.metafields.custom.short_description.value
+  if noon_card_short_desc != blank
+    assign noon_card_short_desc = noon_card_short_desc | strip_html
+  else
+    assign noon_card_short_desc = card_collection.description | strip_html | truncatewords: 12
+  endif
 -%}
 
 <div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}">
@@ -97,16 +109,16 @@
                 {%- else -%}
                   {{ 'onboarding.collection_title' | t }}
                 {%- endif -%}
-                {%- if card_collection.description == blank -%}
+                {%- if noon_card_short_desc == blank -%}
                   <span class="icon-wrap">
                     {{- 'icon-arrow.svg' | inline_asset_content -}}
                   </span>
                 {%- endif %}
               </a>
             </h3>
-            {%- if card_collection.description != blank -%}
+            {%- if noon_card_short_desc != blank -%}
               <p class="card__caption">
-                {{- card_collection.description | strip_html | truncatewords: 12 -}}
+                {{- noon_card_short_desc -}}
                 <span class="icon-wrap">
                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                 </span>
@@ -133,16 +145,16 @@
               {%- else -%}
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}
-              {%- if card_collection.featured_image or card_collection.description == blank -%}
+              {%- if card_collection.featured_image or noon_card_short_desc == blank -%}
                 <span class="icon-wrap">
                   {{- 'icon-arrow.svg' | inline_asset_content -}}
                 </span>
               {%- endif %}
             </a>
           </h3>
-          {%- if card_collection.featured_image == null and card_collection.description != blank -%}
+          {%- if card_collection.featured_image == null and noon_card_short_desc != blank -%}
             <p class="card__caption">
-              {{- card_collection.description | strip_html | truncatewords: 12 -}}
+              {{- noon_card_short_desc -}}
               <span class="icon-wrap">
                 {{- 'icon-arrow.svg' | inline_asset_content -}}
               </span>
