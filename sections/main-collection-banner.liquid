@@ -25,6 +25,10 @@
     margin-top: 1.6rem;
     text-align: center;
   }
+
+  #collection-full-description {
+    scroll-margin-top: calc(var(--header-height, 0px) + 20px);
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -116,6 +120,35 @@
     {%- endif -%}
   </div>
 </div>
+
+{%- if noon_show_button -%}
+  <script>
+    if (!window.noonSmoothCollectionScrollBound) {
+      window.noonSmoothCollectionScrollBound = true;
+
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest('.collection-hero__description-button a[href^="#"]');
+        if (!link) return;
+
+        var targetId = link.getAttribute('href').slice(1);
+        var target = document.getElementById(targetId);
+        if (!target) return;
+
+        event.preventDefault();
+
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'start'
+        });
+
+        if (window.history && history.pushState) {
+          history.pushState(null, '', '#' + targetId);
+        }
+      });
+    }
+  </script>
+{%- endif -%}
 
 {% schema %}
 {
