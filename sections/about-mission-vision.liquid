@@ -95,6 +95,38 @@
     .noon-about-mv--has-image .noon-about-mv__text {
       color: rgb(255 255 255);
     }
+
+    /* On mobile the two text columns (Mission, Vision) stack vertically,
+       but the single background image used to still span both of them
+       as one continuous left/right split -- showing the image's two
+       halves side by side squeezed into the narrow mobile width instead
+       of stacked. Split it into two independent backgrounds, one per
+       column, each showing the matching (left/right) slice of the same
+       photo, so the image stacks vertically along with the text. */
+    @media screen and (max-width: 749px) {
+      .noon-about-mv--has-image {
+        background-image: none;
+      }
+
+      .noon-about-mv--has-image .noon-about-mv__col {
+        position: relative;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-size: cover;
+      }
+
+      .noon-about-mv--has-image .noon-about-mv__col--first {
+        background-image: url({{ section.settings.image | image_url: width: 1500 }});
+        background-position: left center;
+      }
+
+      .noon-about-mv--has-image .noon-about-mv__col--last {
+        background-image: url({{ section.settings.image | image_url: width: 1500 }});
+        background-position: right center;
+      }
+    }
   {%- endif -%}
 {%- endstyle -%}
 
