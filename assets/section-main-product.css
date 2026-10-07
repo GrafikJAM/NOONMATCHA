@@ -357,6 +357,16 @@ a.product__text {
     overflow-wrap: anywhere;
     word-break: break-word;
   }
+
+  /* Some pasted (Google Docs) spec tables carry a <colgroup> with
+     hardcoded pixel <col width="..."> attributes (e.g. 222 + 285 =
+     507px), which wins over table-layout: fixed and the table's own
+     CSS width, forcing real horizontal overflow regardless of font
+     size. Neutralize those explicit column widths so the table falls
+     back to the 50/50 split and the 85% width set above. */
+  .product__description table col {
+    width: auto !important;
+  }
 }
 
 /* NOON MATCHA: some product descriptions paste in "flavour profile"
