@@ -357,9 +357,7 @@ a.product__text {
 @media screen and (max-width: 749px) {
   .product__description table {
     font-size: 0.5em;
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
 
   .product__description table td,
