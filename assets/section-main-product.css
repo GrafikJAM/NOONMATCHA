@@ -338,6 +338,27 @@ a.product__text {
   border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
+/* NOON MATCHA: on mobile the spec table was overflowing past the
+   viewport edge (long cell values like cultivar lists forcing extra
+   width). Shrink the text and tighten the table so it stays inside
+   the column instead of forcing horizontal scroll. */
+@media screen and (max-width: 749px) {
+  .product__description table {
+    font-size: 0.5em;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product__description table td,
+  .product__description table th {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
 /* NOON MATCHA: some product descriptions paste in "flavour profile"
    sliders (Līdzsvars/Umami/Efekts) with their own <style> tag that
    centers the .flavor-profile box (max-width: 600px; margin: 2rem
