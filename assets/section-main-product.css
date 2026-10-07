@@ -314,6 +314,18 @@ a.product__text {
   table-layout: fixed;
 }
 
+/* Some pasted (Google Docs) spec tables carry a <colgroup> with
+   hardcoded pixel <col width="..."> attributes (e.g. 222 + 285 =
+   507px). Under table-layout: fixed those explicit column widths win
+   over the table's own CSS width at ANY viewport size -- not just
+   mobile -- forcing real overflow whenever the available column
+   space is narrower than the hardcoded total (e.g. a resized laptop
+   window, not only phones). Neutralize them everywhere so the table
+   always falls back to the 50/50 split defined below. */
+.product__description table col {
+  width: auto !important;
+}
+
 .product__description table td,
 .product__description table th {
   width: 50%;
@@ -356,16 +368,6 @@ a.product__text {
     padding-bottom: 0.3rem;
     overflow-wrap: anywhere;
     word-break: break-word;
-  }
-
-  /* Some pasted (Google Docs) spec tables carry a <colgroup> with
-     hardcoded pixel <col width="..."> attributes (e.g. 222 + 285 =
-     507px), which wins over table-layout: fixed and the table's own
-     CSS width, forcing real horizontal overflow regardless of font
-     size. Neutralize those explicit column widths so the table falls
-     back to the 50/50 split and the 85% width set above. */
-  .product__description table col {
-    width: auto !important;
   }
 }
 
