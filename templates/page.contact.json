@@ -36,6 +36,15 @@
         "padding_bottom": 64
       }
     },
+    "requisites": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"font-size: 12px; line-height: 1.7; color: #767676; text-align: center; max-width: 640px; margin: 0 auto;\"><p>NOON MATCHA birojs<br>Adrese: Miera iela 105-6, Rīga</p><p>Telefons numurs: +37126013438<br>E-pasts: info@noonmatcha.lv</p><p>Darba laiks<br>Pirmdiena-Svētdiena; 10:00-18:00</p><p>Rekvizīti:<br>SIA NOON Brands<br>Reģ. Nr. 40203662602</p><p>Juridiskā adrese: Ogres nov., Ogre, Tīnūžu iela 10 - 16, LV-5001</p><p>\"Swedbank\" A/S, HABALV22<br>LV07HABA0551061945352</p><p>VIKTORIJA MIĶELSONE, 25089910044<br>\"Swedbank\" A/S, HABALV22<br>LV35HABA055106600866</p></div>",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
+    },
     "locations": {
       "type": "location-finder",
       "blocks": {
@@ -96,21 +105,12 @@
         "padding_top": 24,
         "padding_bottom": 72
       }
-    },
-    "requisites": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div style=\"font-size: 12px; line-height: 1.7; color: #767676; text-align: center; max-width: 640px; margin: 0 auto;\"><p>NOON MATCHA birojs<br>Adrese: Miera iela 105-6, Rīga</p><p>Telefons numurs: +37126013438<br>E-pasts: info@noonmatcha.lv</p><p>Darba laiks<br>Pirmdiena-Svētdiena; 10:00-18:00</p><p>Rekvizīti:<br>SIA NOON Brands<br>Reģ. Nr. 40203662602</p><p>Juridiskā adrese: Ogres nov., Ogre, Tīnūžu iela 10 - 16, LV-5001</p><p>\"Swedbank\" A/S, HABALV22<br>LV07HABA0551061945352</p><p>VIKTORIJA MIĶELSONE, 25089910044<br>\"Swedbank\" A/S, HABALV22<br>LV35HABA055106600866</p></div>",
-        "color_scheme": "scheme-1",
-        "padding_top": 24,
-        "padding_bottom": 48
-      }
     }
   },
   "order": [
     "contact-hero",
     "form",
-    "locations",
-    "requisites"
+    "requisites",
+    "locations"
   ]
 }
