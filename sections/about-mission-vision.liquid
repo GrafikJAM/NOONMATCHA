@@ -96,16 +96,27 @@
       color: rgb(255 255 255);
     }
 
-    /* On mobile the two text columns (Mission, Vision) stack vertically,
-       but the single background image used to still span both of them
-       as one continuous left/right split -- showing the image's two
-       halves side by side squeezed into the narrow mobile width instead
-       of stacked. Split it into two independent full-bleed backgrounds,
-       one per column, each showing the matching (left/right) slice of
-       the same photo, so the image stacks vertically along with the
-       text -- full width, no side gutters, no gap between the two, and
-       no stretching (only one axis is scaled; the other is "auto", so
-       the photo's own aspect ratio is always preserved, just cropped). */
+    /* The per-column <img> media wrapper exists only for the mobile
+       split below; desktop keeps using the shared parent background. */
+    .noon-about-mv__col-media {
+      display: none;
+    }
+
+    /* On mobile the two text columns (Mission, Vision) stack vertically.
+       The background-image + background-position trick we tried before
+       (auto 150% / left center / right center) depended on guessing how
+       much the image needed to be over-scaled relative to the column's
+       real rendered size to cleanly separate into two halves -- on the
+       real device it under-cropped, so BOTH halves (bowl + leaves) kept
+       showing inside each single block instead of one clean photo per
+       block. Real <img> elements with object-fit: cover remove the
+       guesswork entirely: give the image exactly 200% of the column's
+       width, clip the column with overflow: hidden, and shift the image
+       left by 0 (first column) or by exactly -100% (last column). That
+       always shows precisely the left half or the right half -- no
+       overlap, no duplication -- regardless of viewport size or the
+       photo's real aspect ratio, and object-fit: cover never distorts
+       the photo (unlike setting two explicit background-size values). */
     @media screen and (max-width: 749px) {
       .noon-about-mv--has-image {
         background-image: none;
@@ -127,23 +138,44 @@
         flex-direction: column;
         justify-content: center;
         padding: 3rem 2rem;
-        background-repeat: no-repeat;
-        /* Scale only the height up (width stays "auto", i.e. proportional
-           to the photo's real aspect ratio) so the crop always covers the
-           column's full height with no grey gap, without ever distorting
-           the photo. The now-oversized width gives left/right position
-           plenty of room to show two clearly different slices. */
-        background-size: auto 150%;
+        overflow: hidden;
       }
 
-      .noon-about-mv--has-image .noon-about-mv__col--first {
-        background-image: url({{ section.settings.image | image_url: width: 1500 }});
-        background-position: left center;
+      .noon-about-mv__col-media {
+        display: block;
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
       }
 
-      .noon-about-mv--has-image .noon-about-mv__col--last {
-        background-image: url({{ section.settings.image | image_url: width: 1500 }});
-        background-position: right center;
+      .noon-about-mv__col-media-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        max-width: none;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .noon-about-mv__col-media-img--last {
+        left: -100%;
+      }
+
+      .noon-about-mv__col-media-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgb(0 0 0 / {{ section.settings.image_overlay_opacity | divided_by: 100.0 }});
+      }
+
+      /* Absolutely-positioned elements paint above static in-flow content
+         regardless of DOM order, so without this the image wrapper above
+         (also position: absolute) would cover the text. Promoting the
+         text wrapper to "positioned" too (position: relative) puts both
+         in the same paint step, where DOM order then correctly wins:
+         this wrapper comes after the media wrapper, so it paints on top. */
+      .noon-about-mv__col-content {
+        position: relative;
       }
     }
   {%- endif -%}
@@ -153,22 +185,48 @@
   <div class="page-width section-{{ section.id }}-padding">
     <div class="noon-about-mv__grid">
       <div class="noon-about-mv__col noon-about-mv__col--first">
-        <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.mission_caption | escape }}</span>
-        {%- if section.settings.mission_heading != blank -%}
-          <h2 class="noon-about-mv__heading {{ section.settings.mission_heading_size }}">{{ section.settings.mission_heading }}</h2>
+        {%- if section.settings.image != blank -%}
+          <div class="noon-about-mv__col-media" aria-hidden="true">
+            <img
+              src="{{ section.settings.image | image_url: width: 1500 }}"
+              alt=""
+              loading="lazy"
+              class="noon-about-mv__col-media-img noon-about-mv__col-media-img--first"
+            >
+            <div class="noon-about-mv__col-media-overlay"></div>
+          </div>
         {%- endif -%}
-        {%- if section.settings.mission_text != blank -%}
-          <div class="noon-about-mv__text {{ section.settings.mission_text_size }}">{{ section.settings.mission_text }}</div>
-        {%- endif -%}
+        <div class="noon-about-mv__col-content">
+          <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.mission_caption | escape }}</span>
+          {%- if section.settings.mission_heading != blank -%}
+            <h2 class="noon-about-mv__heading {{ section.settings.mission_heading_size }}">{{ section.settings.mission_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.mission_text != blank -%}
+            <div class="noon-about-mv__text {{ section.settings.mission_text_size }}">{{ section.settings.mission_text }}</div>
+          {%- endif -%}
+        </div>
       </div>
       <div class="noon-about-mv__col noon-about-mv__col--last">
-        <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.vision_caption | escape }}</span>
-        {%- if section.settings.vision_heading != blank -%}
-          <h2 class="noon-about-mv__heading {{ section.settings.vision_heading_size }}">{{ section.settings.vision_heading }}</h2>
+        {%- if section.settings.image != blank -%}
+          <div class="noon-about-mv__col-media" aria-hidden="true">
+            <img
+              src="{{ section.settings.image | image_url: width: 1500 }}"
+              alt=""
+              loading="lazy"
+              class="noon-about-mv__col-media-img noon-about-mv__col-media-img--last"
+            >
+            <div class="noon-about-mv__col-media-overlay"></div>
+          </div>
         {%- endif -%}
-        {%- if section.settings.vision_text != blank -%}
-          <div class="noon-about-mv__text {{ section.settings.vision_text_size }}">{{ section.settings.vision_text }}</div>
-        {%- endif -%}
+        <div class="noon-about-mv__col-content">
+          <span class="noon-about-mv__caption caption-with-letter-spacing">{{ section.settings.vision_caption | escape }}</span>
+          {%- if section.settings.vision_heading != blank -%}
+            <h2 class="noon-about-mv__heading {{ section.settings.vision_heading_size }}">{{ section.settings.vision_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.vision_text != blank -%}
+            <div class="noon-about-mv__text {{ section.settings.vision_text_size }}">{{ section.settings.vision_text }}</div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>
