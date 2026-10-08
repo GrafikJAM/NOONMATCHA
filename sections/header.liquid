@@ -22,6 +22,30 @@
     margin-left: -1.2rem;
   }
 
+  /* Mobile/tablet header icon order (hamburger now lives inside
+     .header__icons, rendered last in the markup, right after the cart
+     link -- see the Liquid below). Reorder the icons visually via flex
+     "order" so it reads, left to right: Profile, Search, Cart, Menu. */
+  @media screen and (max-width: 989px) {
+    .header__icons > .header__icon--account {
+      order: 1;
+    }
+
+    .header__icons > .header__search {
+      order: 2;
+    }
+
+    .header__icons > .header__icon--cart {
+      order: 3;
+    }
+
+    .header__icons > header-drawer {
+      order: 4;
+      justify-self: auto;
+      margin-left: 0.4rem;
+    }
+  }
+
   {%- if section.settings.transparent_header %}
     .header-wrapper--transparent {
       position: absolute;
@@ -226,10 +250,6 @@
         assign render_search_left = true
       endif
 
-      if section.settings.menu != blank
-        render 'header-drawer', show_country_selector: country_selector, show_language_selector: language_selector, show_social_links: social_links
-      endif
-
       if render_search_left
         render 'header-search', input_id: 'Search-In-Modal-1'
       endif
@@ -370,6 +390,10 @@
           </div>
         {%- endif -%}
       </a>
+
+      {%- if section.settings.menu != blank -%}
+        {%- render 'header-drawer', show_country_selector: country_selector, show_language_selector: language_selector, show_social_links: social_links -%}
+      {%- endif -%}
     </div>
   </header>
 </{{ header_tag }}>
