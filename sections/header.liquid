@@ -25,8 +25,31 @@
   /* Mobile/tablet header icon order (hamburger now lives inside
      .header__icons, rendered last in the markup, right after the cart
      link -- see the Liquid below). Reorder the icons visually via flex
-     "order" so it reads, left to right: Profile, Search, Cart, Menu. */
+     "order" so it reads, left to right: Profile, Search, Cart, Menu.
+
+     When BOTH customer accounts and a menu are enabled (our case),
+     Dawn's own base.css carves search out into its own dedicated grid
+     column on the opposite side of the header from the icon cluster
+     (".header--has-account.header--has-menu ... > .header__search"),
+     instead of using the copy nested inside .header__icons. Undo that
+     special-case so search lives in the icon cluster like the other
+     three, where our "order" rules above can actually reach it. */
   @media screen and (max-width: 989px) {
+    .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) {
+      grid-template-areas: 'left-icons heading icons';
+      grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) > .header__search {
+      display: none;
+    }
+
+    .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app)
+      .header__icons
+      > .header__search {
+      display: inline-flex;
+    }
+
     .header__icons > .header__icon--account {
       order: 1;
     }
