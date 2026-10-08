@@ -114,7 +114,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-size: cover;
+        background-repeat: no-repeat;
+        /* Force each column to show only half the image's width (scaled
+           2x horizontally, full height), so the split is always a clear,
+           distinct slice -- not a near-duplicate -- regardless of how
+           the column's own aspect ratio compares to the photo's. */
+        background-size: 200% 100%;
       }
 
       .noon-about-mv--has-image .noon-about-mv__col--first {
