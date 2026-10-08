@@ -100,12 +100,24 @@
        but the single background image used to still span both of them
        as one continuous left/right split -- showing the image's two
        halves side by side squeezed into the narrow mobile width instead
-       of stacked. Split it into two independent backgrounds, one per
-       column, each showing the matching (left/right) slice of the same
-       photo, so the image stacks vertically along with the text. */
+       of stacked. Split it into two independent full-bleed backgrounds,
+       one per column, each showing the matching (left/right) slice of
+       the same photo, so the image stacks vertically along with the
+       text -- full width, no side gutters, no gap between the two, and
+       no stretching (only one axis is scaled; the other is "auto", so
+       the photo's own aspect ratio is always preserved, just cropped). */
     @media screen and (max-width: 749px) {
       .noon-about-mv--has-image {
         background-image: none;
+      }
+
+      .noon-about-mv--has-image .page-width {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .noon-about-mv--has-image .noon-about-mv__grid {
+        gap: 0;
       }
 
       .noon-about-mv--has-image .noon-about-mv__col {
@@ -114,12 +126,14 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding: 3rem 2rem;
         background-repeat: no-repeat;
-        /* Force each column to show only half the image's width (scaled
-           2x horizontally, full height), so the split is always a clear,
-           distinct slice -- not a near-duplicate -- regardless of how
-           the column's own aspect ratio compares to the photo's. */
-        background-size: 200% 100%;
+        /* Scale only the height up (width stays "auto", i.e. proportional
+           to the photo's real aspect ratio) so the crop always covers the
+           column's full height with no grey gap, without ever distorting
+           the photo. The now-oversized width gives left/right position
+           plenty of room to show two clearly different slices. */
+        background-size: auto 150%;
       }
 
       .noon-about-mv--has-image .noon-about-mv__col--first {
