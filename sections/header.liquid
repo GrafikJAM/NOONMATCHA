@@ -22,18 +22,18 @@
     margin-left: -1.2rem;
   }
 
-  /* Mobile/tablet header icon order (hamburger now lives inside
-     .header__icons, rendered last in the markup, right after the cart
-     link -- see the Liquid below). Reorder the icons visually via flex
-     "order" so it reads, left to right: Profile, Search, Cart, Menu.
+  /* Mobile/tablet header icons, split 2 + 2 around the centered logo:
+     Profile + Search on the left, Cart + Menu (hamburger) on the right --
+     reading left to right: Profile, Search, Cart, Menu.
 
-     When BOTH customer accounts and a menu are enabled (our case),
-     Dawn's own base.css carves search out into its own dedicated grid
-     column on the opposite side of the header from the icon cluster
+     Dawn's own base.css carves search into its own dedicated grid column
+     when both customer accounts and a menu are enabled
      (".header--has-account.header--has-menu ... > .header__search"),
-     instead of using the copy nested inside .header__icons. Undo that
-     special-case so search lives in the icon cluster like the other
-     three, where our "order" rules above can actually reach it. */
+     and separately buries the hamburger + account + cart together on one
+     side. We don't use either of those defaults: instead .header__icon-group--left
+     (markup above, right before the logo) holds its own Profile + Search
+     icons and sits in the "left-icons" grid area, while the existing
+     .header__icons on the right is trimmed down to just Cart + Menu. */
   @media screen and (max-width: 989px) {
     .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app) {
       grid-template-areas: 'left-icons heading icons';
@@ -44,28 +44,41 @@
       display: none;
     }
 
-    .header--has-account.header--has-menu:not(.header--mobile-left):not(.header--has-app)
-      .header__icons
-      > .header__search {
+    .header__icon-group--left {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      grid-area: left-icons;
+      justify-self: start;
+    }
+
+    .header__icon-group--left .header__search {
       display: inline-flex;
     }
 
-    .header__icons > .header__icon--account {
-      order: 1;
+    .header__icon-group--left shopify-account {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header__icons > shopify-account.header__icon--account {
+      display: none;
     }
 
     .header__icons > .header__search {
-      order: 2;
-    }
-
-    .header__icons > .header__icon--cart {
-      order: 3;
+      display: none;
     }
 
     .header__icons > header-drawer {
-      order: 4;
       justify-self: auto;
       margin-left: 0.4rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .header__icon-group--left {
+      display: none;
     }
   }
 
@@ -272,11 +285,22 @@
       if section.settings.logo_position == 'top-center' or section.settings.menu == blank or shop.customer_accounts_enabled
         assign render_search_left = true
       endif
-
-      if render_search_left
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
     -%}
+
+    {%- if render_search_left -%}
+      <div class="header__icon-group header__icon-group--left">
+        {%- if shop.customer_accounts_enabled -%}
+          <shopify-account
+            menu="{{ settings.customer_account_menu | default: 'customer-account-main-menu' }}"
+            class="header__icon header__icon--account link focus-inset"
+          >
+            <span slot="signed-out-avatar" class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+            <span slot="signed-out-avatar" class="visually-hidden">{{ 'customer.log_in' | t }}</span>
+          </shopify-account>
+        {%- endif -%}
+        {%- render 'header-search', input_id: 'Search-In-Modal-1' -%}
+      </div>
+    {%- endif -%}
 
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
