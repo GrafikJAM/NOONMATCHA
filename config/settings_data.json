@@ -142,6 +142,23 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "1143683040400472741": {
+        "type": "shopify://apps/cwilltrustoo-reviews/blocks/trustoo-review-switch/c8f15077-6475-4e86-ad06-b66038d5ba2c",
+        "disabled": false,
+        "settings": {}
+      },
+      "15166777373669960584": {
+        "type": "shopify://apps/i-agree-to-terms/blocks/app-embed/59da5434-0c31-473f-a0bb-df62957ca827",
+        "disabled": false,
+        "settings": {}
+      },
+      "534977871531306417": {
+        "type": "shopify://apps/tnc-terms-checkbox/blocks/app-embed/2b45c8fb-5ee2-4392-8a72-b663da1d38ad",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
