@@ -94,6 +94,14 @@
     .header-wrapper--transparent::before {
       display: none;
     }
+
+    /* The transparent header's own z-index (100) otherwise sits above
+       the cart-notification popup (Dawn only ever gives it z-index -1,
+       even while open), so the popup's "Item added to your cart"
+       heading rendered interleaved with the header's logo behind it. */
+    .cart-notification.active {
+      z-index: 101;
+    }
   {%- endif %}
 
   {%- if section.settings.transparent_header and request.page_type != "index" -%}
