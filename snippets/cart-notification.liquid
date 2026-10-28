@@ -68,4 +68,18 @@
   .cart-notification .agree-to-terms-wrapper .label-wrapper {
     color: #ffffff !important;
   }
+
+  /* The app's own markup has zero spacing of its own (it sets
+     margin:0 on its wrapper), so its block sat flush against the
+     Check out button below it, and the dash before "lasit seit." ran
+     straight into the link with no gap. Give it the same 1rem rhythm
+     the rest of .cart-notification__links uses, and a small gap
+     before the link. */
+  .cart-notification .agree-to-terms-wrapper {
+    margin-bottom: 1rem;
+  }
+
+  .cart-notification .agree-to-terms-wrapper .td-link {
+    margin-left: 0.25em;
+  }
 {% endstyle %}
