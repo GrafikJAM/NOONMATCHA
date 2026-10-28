@@ -57,4 +57,15 @@
   .cart-notification {
     display: none;
   }
+
+  /* The "I Agree to Terms" app injects its own checkbox + label into
+     any cart form on the site (cart-notification, cart page, etc.)
+     with an inline color style of its own (#000000). That reads fine
+     on the white /cart page, but the cart-notification popup has a
+     dark background, so the label text is invisible there. Override
+     it (the app sets color inline, so this needs !important) only
+     inside the notification popup -- leave the /cart page alone. */
+  .cart-notification .agree-to-terms-wrapper .label-wrapper {
+    color: #ffffff !important;
+  }
 {% endstyle %}
